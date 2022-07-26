@@ -31,6 +31,24 @@ extension QueueStack<E> on Queue<E> {
 }
 ```
 
+#### Regex
+
+```dart
+bool get isAlphaNumericChar => RegExp(r'^[\w\d]$').hasMatch(this); // or RegExp(r'^[a-zA-Z0-9]$')
+```
+
+#### ASCII code units
+
+```dart
+  bool get isAlphaNumericChar {
+    final codeUnit = codeUnitAt(0);
+    final isNumber = 48 <= codeUnit && codeUnit <= 57;
+    final isUpperCase = 65 <= codeUnit && codeUnit <= 90;
+    final isLowerCase = 97 <= codeUnit && codeUnit <= 122;
+    return isNumber || isLowerCase || isUpperCase;
+  }
+```
+
 ## About the solutions
 
 ## Challenges
@@ -89,7 +107,32 @@ Consider empty nodes.
 
 
 
+<details>
+<summary>Valid Palindrome</summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/valid_palindrome_test.dart) - [LeetCode - Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
+
+Obvious solution: filter invalid characters, keep only alphanumeric characters and convert to lowercase (`split`+`where`+`map`+`join`).
+Then, check if palindrome: either two pointers, or reverse the string and compare against filtered values.
+
+Improvement: Start with two pointers, if a letter is not alphanumeric, move pointer to next alphanumeric.
+Whenever the two pointers contain alphanumeric chars, compare. If the values for the two pointers don't match, return "not a palindrome".
+
+</details>
+
+
+
+
 ## Misc
+
+### Coding conventions
+
+In some cases, I do not follow the official Dart style guide
+(or other rules that in most popular linting libraries are required).
+You can find below the list of rules that I do not follow with a reason as to why that is.
+
+* `curly_braces_in_flow_control_structures`: sometimes I don't want to "spend" three lines just to write a simple `while` loop.
+* `avoid_multiple_declarations_per_line`: sometimes two declarations just "belong together"
 
 ### Save your completed questions
 
