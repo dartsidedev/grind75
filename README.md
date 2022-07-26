@@ -187,6 +187,17 @@ To fit all potential unicode characters in a list, the list would have to contai
 That's wasteful if the strings are short (and anything less than a million characters counts as short in this case).
 </details>
 
+<details>
+<summary><b>Binary Search</b> 🏷 <i>binary search</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/binary_search_test.dart) - [LeetCode - Binary Search](https://leetcode.com/problems/bianry-search/)
+
+Learn to write binary search, it doesn't really get much simpler than that.
+Pay attention to empty list, first element, last element. Practice templates.
+
+TODO: Check card: https://leetcode.com/explore/learn/card/binary-search/
+</details>
+
 
 
 
