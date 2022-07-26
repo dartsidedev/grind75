@@ -2,5 +2,11 @@
   "two-sum",
   "valid-parentheses",
   "merge-two-sorted-lists",
-  "valid-palindrome"
+  "valid-palindrome",
+  "best-time-to-buy-and-sell-stock",
+  "invert-binary-tree",
+  "valid-anagram",
+  "binary-search",
+  "first-bad-version",
+  "ransom-note"
 ]
