@@ -1,1 +1,6 @@
-[]
+[
+  "two-sum",
+  "valid-parentheses",
+  "merge-two-sorted-lists",
+  "valid-palindrome"
+]
