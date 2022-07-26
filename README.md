@@ -1,6 +1,6 @@
 # Grind 75 in Dart
 
-> All the 169 challenges of the [Grind 75](https://www.techinterviewhandbook.org/grind75) (similar to [Blind 75](https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions)) [LeetCode](https://leetcode.com/) study plan solved in beautiful, idiomatic [Dart](https://dart.dev/)
+> All the 169 challenges of the Grind 75 LeetCode study plan solved in beautiful, idiomatic Dart.
 
 You can find all the questions and solutions in the [`test`](https://github.com/dartsidedev/grind75/tree/main/test) folder.
 
@@ -60,7 +60,6 @@ Other solutions:
 
 
 
-
 <details>
 <summary>Valid Parentheses</summary>
 
@@ -71,6 +70,23 @@ Pop off when closing, and make sure they are matching.
 Don't forget to check at the end if the stack is empty.
 Remember to pop off only if stack is not empty (or use peek).
 </details>
+
+
+
+<details>
+<summary>Merge Two Sorted Lists</summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/merge_two_sorted_lists_test.dart) - [LeetCode - Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
+
+Trick: pre-head pointer significantly simplifies the algorithm.
+While both lists are not empty, pick one off the lists and add to the results.
+Do not forget to add the remaining items of the longer list.
+Return the pre-head's next as result.
+
+Consider empty nodes.
+</details>
+
+
 
 ## Misc
 
