@@ -190,7 +190,7 @@ That's wasteful if the strings are short (and anything less than a million chara
 <details>
 <summary><b>Binary Search</b> 🏷 <i>binary search</i></summary>
 
-> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/binary_search_test.dart) - [LeetCode - Binary Search](https://leetcode.com/problems/bianry-search/)
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/binary_search_test.dart) - [LeetCode - Binary Search](https://leetcode.com/problems/binary-search/)
 
 Learn to write binary search, it doesn't really get much simpler than that.
 Pay attention to empty list, first element, last element. Practice templates.
@@ -198,6 +198,17 @@ Pay attention to empty list, first element, last element. Practice templates.
 TODO: Check card: https://leetcode.com/explore/learn/card/binary-search/
 </details>
 
+
+<details>
+<summary><b>First bad version</b> 🏷 <i>binary search</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/first_bad_version_test.dart) - [LeetCode - First Bad Version](https://leetcode.com/problems/first-bad-version/)
+
+Learn to write binary search, it doesn't really get much simpler than that.
+Pay attention to empty list, first element, last element. Practice templates.
+
+TODO: Check card: https://leetcode.com/explore/learn/card/binary-search/
+</details>
 
 
 
