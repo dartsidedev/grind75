@@ -58,7 +58,7 @@ Below you can find a list of challenges that I already solved.
 Following [Neetcode's advice](https://www.youtube.com/watch?v=SVvr3ZjtjI8), I summarize each challenge's core concepts and different ways to solve the challenges with its pros and cons.
 
 <details>
-<summary>Two Sum</summary>
+<summary><b>Two Sum</b> 🏷 <i>array</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/two_sum_test.dart) - [LeetCode - Two Sum](https://leetcode.com/problems/two-sum/)
 
@@ -79,7 +79,7 @@ Other solutions:
 
 
 <details>
-<summary>Valid Parentheses</summary>
+<summary><b>Valid Parentheses</b> 🏷 <i>stack</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/valid_parentheses_test.dart) - [LeetCode - Two Sum](https://leetcode.com/problems/valid-parentheses/)
 
@@ -92,7 +92,7 @@ Remember to pop off only if stack is not empty (or use peek).
 
 
 <details>
-<summary>Merge Two Sorted Lists</summary>
+<summary><b>Merge Two Sorted Lists</b> 🏷 <i>linked list</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/merge_two_sorted_lists_test.dart) - [LeetCode - Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 
@@ -108,7 +108,7 @@ Consider empty nodes.
 
 
 <details>
-<summary>Valid Palindrome</summary>
+<summary><b>Valid Palindrome</b> 🏷 <i>string</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/valid_palindrome_test.dart) - [LeetCode - Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
 
