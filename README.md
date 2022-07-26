@@ -20,9 +20,13 @@ Here, I summarize the core ideas, Dart syntax, data structures or algorithms tha
 #### Stack
 
 ```dart
+import 'dart:collection'; // Queue
+import 'package:collection/collection.dart'; // firstOrNull
+
 extension QueueStack<E> on Queue<E> {
   void push(E value) => addLast(value);
   E pop() => removeLast(); // throws StateError if empty!
+  // For most problems, peek is not needed.
   E? peek() => firstOrNull;
 }
 ```
@@ -33,9 +37,10 @@ extension QueueStack<E> on Queue<E> {
 
 Below you can find a list of challenges that I already solved.
 
-Following [Neetcode's advice](https://www.youtube.com/watch?v=SVvr3ZjtjI8), I summarize each challenge's core concepts and different ways to solve the challenges with its pros and cons. 
+Following [Neetcode's advice](https://www.youtube.com/watch?v=SVvr3ZjtjI8), I summarize each challenge's core concepts and different ways to solve the challenges with its pros and cons.
 
-### Two Sum
+<details>
+<summary>### Two Sum</summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/two_sum_test.dart) - [LeetCode - Two Sum](https://leetcode.com/problems/two-sum/)
 
@@ -52,14 +57,22 @@ Other solutions:
 1. Brute force: double loop, return when hit target. Time O(n^2), space O(1).
 2. [Sort list](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted) first, then two pointers. Need to keep track of the original indices or need to use new list, though, extra space!
 
-### Valid Parentheses
+</details>
+
+
+
+
+<details>
+<summary>### Valid Parentheses</summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/valid_parentheses_test.dart) - [LeetCode - Two Sum](https://leetcode.com/problems/valid-parentheses/)
 
 Push items to a stack when parenthesis/bracket is opening.
 Pop off when closing, and make sure they are matching.
 Don't forget to check at the end if the stack is empty.
-Remember to pop off only if stack is not empty.
+Remember to pop off only if stack is not empty (or use peek).
+
+</details>
 
 ## Misc
 
