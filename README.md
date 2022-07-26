@@ -64,7 +64,26 @@ You need to be able to write a binary search in a minute, you don't have 10 minu
 
 TODO: Check card: https://leetcode.com/explore/learn/card/binary-search/
 
-## About the solutions
+## Disclaimers
+
+### Coding conventions
+
+In some cases, I do not follow the official Dart style guide
+(or other rules that in most popular linting libraries are required).
+You can find below the list of rules that I do not follow with a reason as to why that is.
+
+* `curly_braces_in_flow_control_structures`: sometimes I don't want to "spend" three lines just to write a simple `while` loop.
+* `avoid_multiple_declarations_per_line`: sometimes two declarations just "belong together"
+
+### Test quality
+
+Most of the time, I didn't spend time writing the perfect test description for my tests.
+This doesn't mean that in your day job, you should write the tests like me, it just means that I wanted to focus on
+problem solving (the solution) and making sure that I have enough tests to spot any potential mistakes (as unfortunately LeetCode doesn't do it for me for Dart).
+
+### Solution descriptions
+
+The solution descriptions are mostly for myself. For cases, where the challenge was very easy for me, I didn't spend much effort on describing the solution.
 
 ## Challenges
 
@@ -224,22 +243,20 @@ Pay attention to empty list, first element, last element. Practice templates.
 
 For letter frequency counter, use map for unicode, use list of length 26 for ASCII lowercase.
 
-You can use two maps, or start with one, and start extracting the other. You can also sort and compare...
+Simple solution:
+You can use two maps/lists as frequency counters, then check whether the magazine's counters are highers for each position than in the ransom note.
+
+Alternatives.
+Terminate early (earlier?): Start with one map for the magazine, then start removing letters based on the ransom note. Whenever your magazines hit 0 counts, return false.
+Alternative II. You can also sort and compare, sort and put it into a stack, etc...
 
 </details>
 
 
 
+
+
 ## Misc
-
-### Coding conventions
-
-In some cases, I do not follow the official Dart style guide
-(or other rules that in most popular linting libraries are required).
-You can find below the list of rules that I do not follow with a reason as to why that is.
-
-* `curly_braces_in_flow_control_structures`: sometimes I don't want to "spend" three lines just to write a simple `while` loop.
-* `avoid_multiple_declarations_per_line`: sometimes two declarations just "belong together"
 
 ### Save your completed questions
 

@@ -1,6 +1,8 @@
 // A different, more OOP approach to freq counting is written in the anagram check.
 // This kind of mixes different paradigms, but I am just too bored to do everything the simple way.
 
+import 'package:test/test.dart';
+
 /// Given two strings [ransomNote] and [magazine],
 /// return true if [ransomNote] can be constructed by using the letters
 /// from [magazine] and false otherwise.
@@ -29,4 +31,20 @@ extension on List<int> {
 List<int> _buildFreqs(String s) {
   final list = List.filled(26, 0, growable: false);
   return s.split('').fold(list, (p, e) => p..incrementAt(e.charIndex));
+}
+
+void main() {
+  group('ransomNote canConstruct', () {
+    test('LC examples', () {
+      expect(canConstruct('a', 'b'), false);
+      expect(canConstruct('aa', 'ab'), false);
+      expect(canConstruct('aa', 'aba'), true);
+    });
+
+    test('other examples', () {
+      expect(canConstruct('a', 'b'), false);
+      expect(canConstruct('aa', 'ab'), false);
+      expect(canConstruct('aa', 'aba'), true);
+    });
+  });
 }
