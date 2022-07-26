@@ -80,7 +80,8 @@ Remember to pop off only if stack is not empty (or use peek).
 
 Trick: pre-head pointer significantly simplifies the algorithm.
 While both lists are not empty, pick one off the lists and add to the results.
-Do not forget to add the remaining items of the longer list.
+Move pointer.
+Do not forget to add the remaining items of the longer list to the list.
 Return the pre-head's next as result.
 
 Consider empty nodes.

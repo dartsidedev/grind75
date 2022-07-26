@@ -61,6 +61,10 @@ class Node {
 
   @override
   String toString() => 'Node($value, $next)';
+
+  // This goes into code golf territory, but the resulting solution is pretty neat.
+  // bool operator <(Node other) => value < other.value;
+  // Node? operator +(int i) => next;
 }
 
 Node? mergeTwoSortedLists(Node? l1, Node? l2) {
