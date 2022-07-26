@@ -17,6 +17,16 @@ You can find all the questions and solutions in the [`test`](https://github.com/
 
 Here, I summarize the core ideas, Dart syntax, data structures or algorithms that I keep forgetting.
 
+#### Stack
+
+```dart
+extension QueueStack<E> on Queue<E> {
+  void push(E value) => addLast(value);
+  E pop() => removeLast(); // throws StateError if empty!
+  E? peek() => firstOrNull;
+}
+```
+
 ## About the solutions
 
 ## Challenges
@@ -25,9 +35,9 @@ Below you can find a list of challenges that I already solved.
 
 Following [Neetcode's advice](https://www.youtube.com/watch?v=SVvr3ZjtjI8), I summarize each challenge's core concepts and different ways to solve the challenges with its pros and cons. 
 
-### [Two Sum](https://github.com/dartsidedev/grind75/blob/main/test/two_sum.dart)
+### Two Sum
 
-> [LeetCode - Two Sum](https://leetcode.com/problems/two-sum/)
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/two_sum_test.dart) - [LeetCode - Two Sum](https://leetcode.com/problems/two-sum/)
 
 > input: exactly one solution. You may not use the same element twice.
 
@@ -41,6 +51,15 @@ Complexity. Time O(n), as you might iterate over the whole list. Space O(n) you 
 Other solutions:
 1. Brute force: double loop, return when hit target. Time O(n^2), space O(1).
 2. [Sort list](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted) first, then two pointers. Need to keep track of the original indices or need to use new list, though, extra space!
+
+### Valid Parentheses
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/valid_parentheses_test.dart) - [LeetCode - Two Sum](https://leetcode.com/problems/valid-parentheses/)
+
+Push items to a stack when parenthesis/bracket is opening.
+Pop off when closing, and make sure they are matching.
+Don't forget to check at the end if the stack is empty.
+Remember to pop off only if stack is not empty.
 
 ## Misc
 
