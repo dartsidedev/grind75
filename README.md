@@ -19,14 +19,33 @@ Here, I summarize the core ideas, Dart syntax, data structures or algorithms tha
 
 ## About the solutions
 
-
-
 ## Challenges
 
 Below you can find a list of challenges that I already solved.
 
 Following [Neetcode's advice](https://www.youtube.com/watch?v=SVvr3ZjtjI8), I summarize each challenge's core concepts and different ways to solve the challenges with its pros and cons. 
 
-### Two Sum
+### [Two Sum](https://github.com/dartsidedev/grind75/blob/main/test/two_sum.dart)
 
-Bla Bla, this or that. O of n!
+> [LeetCode - Two Sum](https://leetcode.com/problems/two-sum/)
+
+> input: exactly one solution. You may not use the same element twice.
+
+Iterate over numbers: store in map: number is the key, index is the value.
+As you iterate, look up in the map whether the current number has a complement in the map that adds up to target, return indices if it's a solution.
+If the current number and none of the map entries add up to the target number, add the number to the map.
+Continue until solution is found.
+
+Complexity. Time O(n), as you might iterate over the whole list. Space O(n) you need a map.
+
+Other solutions:
+1. Brute force: double loop, return when hit target. Time O(n^2), space O(1).
+2. [Sort list](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted) first, then two pointers. Need to keep track of the original indices or need to use new list, though, extra space!
+
+## Misc
+
+### Save your completed questions
+
+```js
+console.log(JSON.stringify(JSON.parse(localStorage.getItem('1:completedQuestions')), null, 2));
+```
