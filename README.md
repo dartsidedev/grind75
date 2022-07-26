@@ -40,7 +40,9 @@ Below you can find a list of challenges that I already solved.
 Following [Neetcode's advice](https://www.youtube.com/watch?v=SVvr3ZjtjI8), I summarize each challenge's core concepts and different ways to solve the challenges with its pros and cons.
 
 <details>
-<summary>### Two Sum</summary>
+<summary>Two Sum</summary>
+
+### Two sum
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/two_sum_test.dart) - [LeetCode - Two Sum](https://leetcode.com/problems/two-sum/)
 
@@ -63,7 +65,9 @@ Other solutions:
 
 
 <details>
-<summary>### Valid Parentheses</summary>
+<summary>Valid Parentheses</summary>
+
+### Valid Parentheses
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/valid_parentheses_test.dart) - [LeetCode - Two Sum](https://leetcode.com/problems/valid-parentheses/)
 
