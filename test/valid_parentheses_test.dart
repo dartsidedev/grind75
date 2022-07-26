@@ -3,40 +3,6 @@ import 'dart:collection';
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
-void main() {
-  group('isValidParentheses', () {
-    test('LC Example 1', () {
-      expect(isValidParentheses('()'), true);
-    });
-
-    test('LC Example 2', () {
-      expect(isValidParentheses('()[]{}'), true);
-    });
-
-    test('LC Example 3', () {
-      expect(isValidParentheses('(]'), false);
-    });
-
-    test('Nested', () {
-      expect(isValidParentheses('()[{()(){}[]}]{}'), true);
-      expect(isValidParentheses('()[{()(){}[]]}]{}'), false);
-    });
-
-    test('Stack empty check', () {
-      expect(isValidParentheses('()('), false);
-    });
-
-    test('Empty input', () {
-      expect(isValidParentheses(''), true);
-    });
-
-    test('One char input', () {
-      expect(isValidParentheses('('), false);
-      expect(isValidParentheses(')'), false);
-    });
-  });
-}
-
 // s consists of parentheses only '()[]{}'.
 bool isValidParentheses(String s) {
   final Queue<String> stack = DoubleLinkedQueue();
@@ -74,4 +40,38 @@ extension QueueStack<E> on Queue<E> {
   E pop() => removeLast();
 
   E? peek() => firstOrNull;
+}
+
+void main() {
+  group('isValidParentheses', () {
+    test('LC Example 1', () {
+      expect(isValidParentheses('()'), true);
+    });
+
+    test('LC Example 2', () {
+      expect(isValidParentheses('()[]{}'), true);
+    });
+
+    test('LC Example 3', () {
+      expect(isValidParentheses('(]'), false);
+    });
+
+    test('Nested', () {
+      expect(isValidParentheses('()[{()(){}[]}]{}'), true);
+      expect(isValidParentheses('()[{()(){}[]]}]{}'), false);
+    });
+
+    test('Stack empty check', () {
+      expect(isValidParentheses('()('), false);
+    });
+
+    test('Empty input', () {
+      expect(isValidParentheses(''), true);
+    });
+
+    test('One char input', () {
+      expect(isValidParentheses('('), false);
+      expect(isValidParentheses(')'), false);
+    });
+  });
 }

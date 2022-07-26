@@ -1,5 +1,26 @@
 import 'package:test/test.dart';
 
+Node? mergeTwoSortedLists(Node? l1, Node? l2) {
+  final prehead = Node(0); // value doesn't matter, just to simplify code
+  Node result = prehead;
+
+  while (l1 != null && l2 != null) {
+    if (l1 < l2) {
+      result.next = l1;
+      l1 = l1.next;
+    } else {
+      result.next = l2;
+      l2 = l2.next;
+    }
+    result = result.next!;
+  }
+
+  l1 ??= l2;
+  if (l1 != null) result.next = l1;
+
+  return prehead.next;
+}
+
 void main() {
   group('mergeTwoSortedLists', () {
     test('LC Example 1', () {
@@ -62,31 +83,11 @@ class Node {
   @override
   String toString() => 'Node($value, $next)';
 
+  bool operator <(Node other) => value < other.value;
+  bool operator <=(Node other) => value <= other.value;
+  bool operator >(Node other) => value > other.value;
+  bool operator >=(Node other) => value >= other.value;
+
   // This goes into code golf territory, but the resulting solution is pretty neat.
-  // bool operator <(Node other) => value < other.value;
   // Node? operator +(int i) => next;
-}
-
-Node? mergeTwoSortedLists(Node? l1, Node? l2) {
-  final prehead = Node(0); // value doesn't matter
-  Node iterResult = prehead;
-
-  Node? iter1 = l1;
-  Node? iter2 = l2;
-
-  while (iter1 != null && iter2 != null) {
-    if (iter1.value < iter2.value) {
-      iterResult.next = iter1;
-      iter1 = iter1.next;
-    } else {
-      iterResult.next = iter2;
-      iter2 = iter2.next;
-    }
-    iterResult = iterResult.next!;
-  }
-
-  iter1 ??= iter2;
-  if (iter1 != null) iterResult.next = iter1;
-
-  return prehead.next;
 }

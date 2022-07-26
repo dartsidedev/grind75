@@ -1,21 +1,5 @@
 import 'package:test/test.dart';
 
-void main() {
-  group('isValidPalindrome', () {
-    test('LC Example 1', () {
-      expect(isValidPalindrome('A man, a plan, a canal: Panama'), true);
-    });
-
-    test('LC Example 2', () {
-      expect(isValidPalindrome('race a car'), false);
-    });
-
-    test('LC Example 3', () {
-      expect(isValidPalindrome(''), true);
-    });
-  });
-}
-
 bool isValidPalindrome(String source) {
   int i = 0, j = source.length - 1;
 
@@ -40,4 +24,20 @@ extension StringIsAlphaNumeric on String {
   }
 
   bool caseInsensitiveEquals(String o) => toLowerCase() == o.toLowerCase();
+}
+
+void main() {
+  group('isValidPalindrome', () {
+    test('LC Example 1', () {
+      expect(isValidPalindrome('A man, a plan, a canal: Panama'), true);
+    });
+
+    test('LC Example 2', () {
+      expect(isValidPalindrome('race a car'), false);
+    });
+
+    test('LC Example 3', () {
+      expect(isValidPalindrome(''), true);
+    });
+  });
 }

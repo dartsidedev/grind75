@@ -1,21 +1,5 @@
 import 'package:test/test.dart';
 
-void main() {
-  group('twoSum', () {
-    test('LC Example 1', () {
-      expect(twoSum([2, 7, 11, 15], 9), [0, 1]);
-    });
-
-    test('LC Example 2', () {
-      expect(twoSum([3, 2, 4], 6), [1, 2]);
-    });
-
-    test('LC Example 3', () {
-      expect(twoSum([3, 3], 6), [0, 1]);
-    });
-  });
-}
-
 /// Given an array of integers [numbers] and an integer [target],
 /// returns the indices of the two numbers such that they add up to [target].
 List<int> twoSum(List<int> numbers, int target) {
@@ -34,3 +18,21 @@ List<int> twoSum(List<int> numbers, int target) {
 
   throw ArgumentError('Input violates assumption: exactly one solution');
 }
+
+
+void main() {
+  group('twoSum', () {
+    test('LC Example 1', () {
+      expect(twoSum([2, 7, 11, 15], 9), [0, 1]);
+    });
+
+    test('LC Example 2', () {
+      expect(twoSum([3, 2, 4], 6), [1, 2]);
+    });
+
+    test('LC Example 3', () {
+      expect(twoSum([3, 3], 6), [0, 1]);
+    });
+  });
+}
+
