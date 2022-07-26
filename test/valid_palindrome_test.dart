@@ -29,8 +29,9 @@ bool isValidPalindrome(String source) {
 }
 
 extension StringIsAlphaNumeric on String {
-  // or RegExp(r'^[a-zA-Z0-9]$')
   bool get isAlphaNumericChar {
+    // Or with regexp:
+    // return RegExp(r'^[\w\d]$').hasMatch(this);
     final codeUnit = codeUnitAt(0);
     final isNumber = 48 <= codeUnit && codeUnit <= 57;
     final isUpperCase = 65 <= codeUnit && codeUnit <= 90;
@@ -38,6 +39,5 @@ extension StringIsAlphaNumeric on String {
     return isNumber || isLowerCase || isUpperCase;
   }
 
-  bool caseInsensitiveEquals(String other) =>
-      toLowerCase() == other.toLowerCase();
+  bool caseInsensitiveEquals(String o) => toLowerCase() == o.toLowerCase();
 }
