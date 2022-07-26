@@ -49,6 +49,12 @@ bool get isAlphaNumericChar => RegExp(r'^[\w\d]$').hasMatch(this); // or RegExp(
   }
 ```
 
+#### Tree traversal
+
+* Preorder: root, left, right 
+* Post order: left, right, root
+* Inorder: left, root, right 
+
 ## About the solutions
 
 ## Challenges
@@ -146,6 +152,19 @@ Whenever the two pointers contain alphanumeric chars, compare. If the values for
 
 </details>
 
+<details>
+<summary><b>Invert Binary Tree</b> 🏷 <i>binary tree</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/invert_binary_tree_test.dart) - [LeetCode - Valid Palindrome](https://leetcode.com/problems/invert-binary-tree/)
+
+Invert tree recursively: if null, return.
+Swap left and right children, then invert left and right subtrees.
+Return node.
+
+Both pre-order and post-order traversal give the right answer.
+
+TODO: Solve without recursion.
+</details>
 
 
 
