@@ -1,6 +1,8 @@
 # Grind 75 in Dart
 
-> All the 169 challenges of the Grind 75 LeetCode study plan solved in beautiful, idiomatic Dart.
+> All`*` the 169 challenges of the Grind 75 LeetCode study plan solved in beautiful, idiomatic Dart.
+
+`*`: Well, not yet, but I am on it! 🚀
 
 You can find all the questions and solutions in the [`test`](https://github.com/dartsidedev/grind75/tree/main/test) folder.
 
@@ -51,9 +53,16 @@ bool get isAlphaNumericChar => RegExp(r'^[\w\d]$').hasMatch(this); // or RegExp(
 
 #### Tree traversal
 
-* Preorder: root, left, right 
+* Preorder: root, left, right
 * Post order: left, right, root
-* Inorder: left, root, right 
+* Inorder: left, root, right
+
+
+#### Binary search
+
+You need to be able to write a binary search in a minute, you don't have 10 minutes to think about edge cases.
+
+TODO: Check card: https://leetcode.com/explore/learn/card/binary-search/
 
 ## About the solutions
 
@@ -194,8 +203,6 @@ That's wasteful if the strings are short (and anything less than a million chara
 
 Learn to write binary search, it doesn't really get much simpler than that.
 Pay attention to empty list, first element, last element. Practice templates.
-
-TODO: Check card: https://leetcode.com/explore/learn/card/binary-search/
 </details>
 
 
@@ -206,8 +213,19 @@ TODO: Check card: https://leetcode.com/explore/learn/card/binary-search/
 
 Learn to write binary search, it doesn't really get much simpler than that.
 Pay attention to empty list, first element, last element. Practice templates.
+</details>
 
-TODO: Check card: https://leetcode.com/explore/learn/card/binary-search/
+
+
+<details>
+<summary><b>Ransom Note</b> 🏷 <i>hash table</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/ransom_note_test.dart) - [LeetCode - Ransom Note](https://leetcode.com/problems/ransom-note/)
+
+For letter frequency counter, use map for unicode, use list of length 26 for ASCII lowercase.
+
+You can use two maps, or start with one, and start extracting the other. You can also sort and compare...
+
 </details>
 
 
