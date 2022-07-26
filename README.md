@@ -69,7 +69,10 @@ As you iterate, look up in the map whether the current number has a complement i
 If the current number and none of the map entries add up to the target number, add the number to the map.
 Continue until solution is found.
 
-Complexity. Time O(n), as you might iterate over the whole list. Space O(n) you need a map.
+Complexity.
+n is the number of elements in the list.
+Time O(n), as you might iterate over the whole list.
+Space O(n) you need a map.
 
 Other solutions:
 1. Brute force: double loop, return when hit target. Time O(n^2), space O(1).
@@ -103,6 +106,29 @@ Do not forget to add the remaining items of the longer list to the list.
 Return the pre-head's next as result.
 
 Consider empty nodes.
+</details>
+
+
+
+<details>
+<summary><b>Best Time to Buy and Sell Stock</b> 🏷 <i>array</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/best_time_to_buy_and_sell_stock_test.dart) - [LeetCode - Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+
+Keep track of min price "so far".
+Current profit is price minus the min price so far.
+Update max profit if current profit greater.
+Handle negative profit edge case (must return 0).
+
+Complexity.
+n is the length of the list.
+Time O(n), as you iterate over the whole list in a single pass.
+Space O(1) as you don't need supporting data structures, only two variables.
+
+Alternative solutions:
+* brute force: double loop, calculate profit for each possible pair. TC: O(n^2), SC: O(1).
+
+Clarify: int vs num vs double. 
 </details>
 
 
