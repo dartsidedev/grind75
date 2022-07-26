@@ -1,39 +1,32 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Grind 75 in Dart
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+> All the 169 challenges of the [Grind 75](https://www.techinterviewhandbook.org/grind75) (similar to [Blind 75](https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions)) [LeetCode](https://leetcode.com/) study plan solved in beautiful, idiomatic [Dart](https://dart.dev/)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+You can find all the questions and solutions in the [`test`](https://github.com/dartsidedev/grind75/tree/main/test) folder.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Resources
 
-## Features
+* [Grind 75](https://www.techinterviewhandbook.org/grind75)
+* [Blind 75](https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions)
+* [LeetCode](https://leetcode.com/)
+* [Dart](https://dart.dev/)
+  * [Language Tour](https://dart.dev/guides/language/language-tour)
+  * [Effective Dart](https://dart.dev/guides/language/effective-dart)
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## Cheat sheet
 
-## Getting started
+Here, I summarize the core ideas, Dart syntax, data structures or algorithms that I keep forgetting.
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+## About the solutions
 
-## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
 
-```dart
-const like = 'sample';
-```
+## Challenges
 
-## Additional information
+Below you can find a list of challenges that I already solved.
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Following [Neetcode's advice](https://www.youtube.com/watch?v=SVvr3ZjtjI8), I summarize each challenge's core concepts and different ways to solve the challenges with its pros and cons. 
+
+### Two Sum
+
+Bla Bla, this or that. O of n!
