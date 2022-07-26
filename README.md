@@ -155,7 +155,7 @@ Whenever the two pointers contain alphanumeric chars, compare. If the values for
 <details>
 <summary><b>Invert Binary Tree</b> 🏷 <i>binary tree</i></summary>
 
-> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/invert_binary_tree_test.dart) - [LeetCode - Valid Palindrome](https://leetcode.com/problems/invert-binary-tree/)
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/invert_binary_tree_test.dart) - [LeetCode - Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)
 
 Invert tree recursively: if null, return.
 Swap left and right children, then invert left and right subtrees.
@@ -165,6 +165,28 @@ Both pre-order and post-order traversal give the right answer.
 
 TODO: Solve without recursion.
 </details>
+
+
+
+<details>
+<summary><b>Valid Anagram</b> 🏷 <i>string</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/valid_anagram_test.dart) - [LeetCode - Valid Anagram](https://leetcode.com/problems/valid-anagram/)
+
+Return early if lengths don't match. Create frequency counter. Check if frequencies match.
+
+Complexity.
+n is the length of the strings.
+Time O(n) as we need to iterate over the both strings entirely to create the frequency table.
+Space O(1) size stays constant no matter how large n is (even for unicode).
+
+Worth creating a helper class `Frequency` that can be created from a string and then compared against another freq. 
+
+Follow up: unicode? Change how frequencies are stored from fixed length list to hash map.
+To fit all potential unicode characters in a list, the list would have to contain 1M+ elements.
+That's wasteful if the strings are short (and anything less than a million characters counts as short in this case).
+</details>
+
 
 
 
