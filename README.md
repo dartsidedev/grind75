@@ -399,6 +399,19 @@ Alternative solutions: [Left to Right](https://www.youtube.com/watch?v=3jdxYj3DD
 
 
 <details>
+<summary><b>Single Number</b> 🏷 <i>binary</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/single_number_test.dart) - [LeetCode - Single Number](https://leetcode.com/problems/single-number/)
+
+* Build map of frequencies. Iterate over map entries, find where value is 1, return key. TC O(n), SC O(n) (this complexity is not accepted according to the answer)
+* "Bit xor" all the way
+
+</details>
+
+
+
+
+<details>
 <summary><b>Palindrome Number</b> 🏷 <i>math</i></summary>
 
 > [Solution in Dart with Chopping digits](https://github.com/dartsidedev/grind75/blob/main/test/palindrome_number_test.dart) - [Solution in Dart with Reverted Number](https://github.com/dartsidedev/grind75/blob/main/test/palindrome_number_reverted_test.dart) - [Solution in Dart with List](https://github.com/dartsidedev/grind75/blob/main/test/palindrome_number_list_test.dart) - [Solution in Dart with Strings](https://github.com/dartsidedev/grind75/blob/main/test/palindrome_number_string_test.dart) - [LeetCode - Palindrome Number](https://leetcode.com/problems/palindrome-number/)
@@ -410,7 +423,6 @@ Second approach: convert it to a list, then solve it as if it were a list. Use `
 Third approach: get the last and first digits. Transform the input. Repeat. Return false if they don't match.
 
 Fourth approach: create reverted number, then compare integers.
-
 </details>
 
 
