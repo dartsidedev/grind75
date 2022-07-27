@@ -242,17 +242,14 @@ Pay attention to empty list, first element, last element. Practice templates.
 <details>
 <summary><b>Flood Fill</b> 🏷 <i>graph</i></summary>
 
-> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/flood_fill_test.dart) - [LeetCode - Flood Fill](https://leetcode.com/problems/flood-fill/)
+> [Iterative Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/flood_fill_test.dart) - [Recursive Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/flood_fill_recursive_test.dart) - [LeetCode - Flood Fill](https://leetcode.com/problems/flood-fill/)
 
-Depth-first search. I implemented the iterative solution.
+Depth-first search, either iteratively or recursively.
 
 Complexity.
 n is the number of pixels in the image.
 Time Complexity O(n) as we might process every pixel.
 Space Complexity O(n) for the stack (either call stack for recursive or queue/stack for the iterative solution).
-
-TODO: practice recursive solution
-
 </details>
 
 
