@@ -19,6 +19,19 @@ You can find all the questions and solutions in the [`test`](https://github.com/
 
 Here, I summarize the core ideas, Dart syntax, data structures or algorithms that I keep forgetting.
 
+#### Queue
+
+Implementers of `Queue`.
+
+```dart
+import 'dart:collection'; // Queue, DoubleLinkedQueue, ListQueue
+
+final q1 = DoubleLinkedQueue<int>();
+
+final initialCapacity = 16; // Default init capacity is 8.
+final q2 = ListQueue<int>(initialCapacity);
+```
+
 #### Stack
 
 ```dart
@@ -222,6 +235,24 @@ That's wasteful if the strings are short (and anything less than a million chara
 
 Learn to write binary search, it doesn't really get much simpler than that.
 Pay attention to empty list, first element, last element. Practice templates.
+</details>
+
+
+
+<details>
+<summary><b>Flood Fill</b> 🏷 <i>graph</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/flood_fill_test.dart) - [LeetCode - Flood Fill](https://leetcode.com/problems/flood-fill/)
+
+Depth-first search. I implemented the iterative solution.
+
+Complexity.
+n is the number of pixels in the image.
+Time Complexity O(n) as we might process every pixel.
+Space Complexity O(n) for the stack (either call stack for recursive or queue/stack for the iterative solution).
+
+TODO: practice recursive solution
+
 </details>
 
 
