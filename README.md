@@ -403,12 +403,28 @@ Alternative solutions: [Left to Right](https://www.youtube.com/watch?v=3jdxYj3DD
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/single_number_test.dart) - [LeetCode - Single Number](https://leetcode.com/problems/single-number/)
 
-* Build map of frequencies. Iterate over map entries, find where value is 1, return key. TC O(n), SC O(n) (this complexity is not accepted according to the answer)
-* "Bit xor" all the way
+> every element appears twice except for one
 
+Solutions:
+* Iter over items: if in second array, remove the item, if it isn't, add the item. In the end, only the single number will stay
+* Build map of frequencies. Iterate over map entries, find where value is 1, return key. TC O(n), SC O(n) (this complexity is not accepted according to the answer)
+* "Bit xor" `^` all the way. Can reduce or loop.
+* math: 2 * (a1 + a2 + ... + an + b) - (a1 + a1 + ... + an + an + b) = b. Sum up all items in list. Then add all items in a set, sum up, double it. The diff is the number.
 </details>
 
 
+
+<details>
+<summary><b>Missing Number</b> 🏷 <i>binary</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/missing_number_test.dart) - [LeetCode - Missing Number](https://leetcode.com/problems/missing-number/)
+
+Solutions:
+* Sort TC O(n log n), then find missing TC O(n).
+* Bit xor again! `^`. Xor together all the numbers, then xor with n. The result is the missing number.
+* Calculate expected sum, calculate actual sum, the diff is the missing number
+  * expected sum can be either calculated O(n), or use Gauss formula
+</details>
 
 
 <details>
