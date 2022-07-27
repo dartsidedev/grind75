@@ -15,6 +15,10 @@ You can find all the questions and solutions in the [`test`](https://github.com/
   * [Language Tour](https://dart.dev/guides/language/language-tour)
   * [Effective Dart](https://dart.dev/guides/language/effective-dart)
 
+## Important todos
+
+* All sorting algorithms. What's a good default? What is used by Dart (and other progr. languages)? Faster than nlogn?
+
 ## Cheat sheet
 
 Here, I summarize the core ideas, Dart syntax, data structures or algorithms that I keep forgetting.
@@ -331,6 +335,25 @@ Then, if there was an odd letter, we can add it to the middle (counts as +1).
 
 Helpful: pre-head!
 TODO: check my past solutions, one of them must be intuitive enough to remember and solve in 3 minutes.
+</details>
+
+
+
+<details>
+<summary><b>Majority Element</b> 🏷 <i>array</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/majority_element_test.dart) - [LeetCode - Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+
+Potential solutions
+* Double loop: Count how often the element is in the list, if it's greater than half, it's the solution. TC O(n^2), SC: O(1).
+* Sort, then sweep for greatest. Sort TC O(n log n), SC O(1). Sweep TC O(n), SC O(1). Total: TC O(n log n), SC O(1).
+  * Improvement: once sorted, we don't need to sweep. It's always the middle element.
+* Store counter in map, if majority, return. TC O(n), SC O(n).
+* Random: Pick an index randomly, there is at least a 50% chance it will be the majority item. O(n) to verify. Repeat until found. Worst case scenario: infty.
+
+TODO:
+* Boyer-Moore
+* Divide and Conquer
 </details>
 
 
