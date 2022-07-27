@@ -359,6 +359,18 @@ TODO:
 
 
 <details>
+<summary><b>Middle of the Linked List</b> 🏷 <i>linked list</i></summary>
+
+> [Solution in Dart (two pointers)](https://github.com/dartsidedev/grind75/blob/main/test/middle_of_the_linked_list_test.dart) - [Solution in Dart (two passes)](https://github.com/dartsidedev/grind75/blob/main/test/middle_of_the_linked_list_two_pass_test.dart) - [LeetCode - Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
+
+Potential solutions:
+* First pass: count elements. Second pass: go to the middle. TC O(n), SC O(1)
+* One-pass algorithm: two pointers, slow and fast. When fast is at the end, slow is in the middle.
+</details>
+
+
+
+<details>
 <summary><b>Contains duplicate</b> 🏷 <i>array</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/contains_duplicate_test.dart) - [LeetCode - Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
@@ -367,7 +379,6 @@ Potential solutions:
 * brute force: double loop. TC O(n^2), SC O(1)
 * sort then look for duplicates. TC O(n log n + n), SC O(1). Mutates input! (or if it doesn't mutate, then it needs a copy O(n))
 * store seen in map, iterate over elements and check if already seen. TC O(n), SC O(n). Does not mutate input.
-
 </details>
 
 
