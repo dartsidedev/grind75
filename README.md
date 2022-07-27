@@ -358,6 +358,8 @@ Keep track of value so far.
 Iterate over the string.
 Check if the next two characters make up an exception. If they do: add to value, skip next char.
 If they don't: treat first char as regular, add to value.
+
+Alternative solutions: [Left to Right](https://www.youtube.com/watch?v=3jdxYj3DD98). [Right to Left](https://www.youtube.com/watch?v=dlATMslQ6Uc). 
 </details>
 
 
