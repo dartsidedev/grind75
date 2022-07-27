@@ -270,6 +270,19 @@ When changing phases, move all items from one stack to another first, then add o
 
 
 <details>
+<summary><b>Linked List Cycle</b> 🏷 <i>linked list</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/linked_list_cycle_test.dart) - [LeetCode - Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
+
+Solutions:
+* Iterate over linked list and store seen nodes in a map. If node is already seen, return that it has a cycle. If reaches the end of the list, it has no cycles. TC O(n), SC O(n)
+* Double pointers. Fast and slow pointers. Fast moves two at a time, slow moves one at a time. if they "meet", it's a cycle. Careful with the stop condition.
+
+</details>
+
+
+
+<details>
 <summary><b>First bad version</b> 🏷 <i>binary search</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/first_bad_version_test.dart) - [LeetCode - First Bad Version](https://leetcode.com/problems/first-bad-version/)
