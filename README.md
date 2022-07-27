@@ -311,6 +311,20 @@ Alternative II. You can also sort and compare, sort and put it into a stack, etc
 
 
 <details>
+<summary><b>Longest Palindrome</b> 🏷 <i>string</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/longest_palindrome_test.dart) - [LeetCode - Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)
+
+Build letter counter (frequency).
+Know your code units: A for 65, Z for 90, a for 97, z for 122.
+Alternatively, use a map.
+
+We can use letters in pairs to build the palindrome length (use int division by 2).
+Then, if there was an odd letter, we can add it to the middle (counts as +1).
+</details>
+
+
+<details>
 <summary><b>Reverse Linked List</b> 🏷 <i>linked list</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/reverse_linked_list_test.dart) - [LeetCode - Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
