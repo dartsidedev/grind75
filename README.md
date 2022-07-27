@@ -349,6 +349,18 @@ Potential solutions:
 
 
 
+<details>
+<summary><b>Roman to Integer</b> 🏷 <i>math</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/roman_to_integer_test.dart) - [LeetCode - Roman to Integer](https://leetcode.com/problems/roman-to-integer/)
+
+Keep track of value so far.
+Iterate over the string.
+Check if the next two characters make up an exception. If they do: add to value, skip next char.
+If they don't: treat first char as regular, add to value.
+</details>
+
+
 
 <details>
 <summary><b>Palindrome Number</b> 🏷 <i>math</i></summary>
