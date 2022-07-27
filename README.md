@@ -77,6 +77,10 @@ You need to be able to write a binary search in a minute, you don't have 10 minu
 
 TODO: Check card: https://leetcode.com/explore/learn/card/binary-search/
 
+#### Reverse linked list
+
+Must know it well!
+
 ## Disclaimers
 
 ### Coding conventions
@@ -292,6 +296,17 @@ Alternative II. You can also sort and compare, sort and put it into a stack, etc
 </details>
 
 
+
+<details>
+<summary><b>Reverse Linked List</b> 🏷 <i>linked list</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/reverse_linked_list_test.dart) - [LeetCode - Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+
+Helpful: pre-head!
+
+TODO: check my past solutions, one of them must be intuitive enough to remember and solve in 3 minutes.
+
+</details>
 
 <details>
 <summary><b>Palindrome Number</b> 🏷 <i>math</i></summary>
