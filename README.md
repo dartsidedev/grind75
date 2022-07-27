@@ -289,6 +289,20 @@ You can use two maps/lists as frequency counters, then check whether the magazin
 Alternatives.
 Terminate early (earlier?): Start with one map for the magazine, then start removing letters based on the ransom note. Whenever your magazines hit 0 counts, return false.
 Alternative II. You can also sort and compare, sort and put it into a stack, etc...
+</details>
+
+
+
+<details>
+<summary><b>Palindrome Number</b> 🏷 <i>math</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/palindrome_number_test.dart) - [Solution in Dart with List](https://github.com/dartsidedev/grind75/blob/main/test/palindrome_number_list_test.dart) - [Solution in Dart with Strings](https://github.com/dartsidedev/grind75/blob/main/test/palindrome_number_string_test.dart) - [LeetCode - Palindrome Number](https://leetcode.com/problems/palindrome-number/)
+
+First approach: convert to string, then solve it as if was a string.
+
+Second approach: convert it to a list, then solve it as if it were a list. Use `%` and `~/`.
+
+Slice and dice the number without extra data structures.
 
 </details>
 
