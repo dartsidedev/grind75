@@ -39,64 +39,57 @@ int romanToInt(String roman) {
   for (var i = 0; i < roman.length; i++) {
     final char = roman[i];
     final nextChar = i == roman.length - 1 ? '' : roman[i + 1];
+    final chars = '$char$nextChar';
 
-    if (char == 'I') {
-      if (nextChar == 'V') {
-        i++;
+    switch (chars) {
+      case 'IV':
         value += 4;
-      } else if (nextChar == 'X') {
         i++;
+        continue;
+      case 'IX':
         value += 9;
-      } else {
-        value += 1;
-      }
-      continue;
-    }
-
-    if (char == 'V') {
-      value += 5;
-      continue;
-    }
-
-    if (char == 'X') {
-      if (nextChar == 'L') {
         i++;
+        continue;
+      case 'XL':
         value += 40;
-      } else if (nextChar == 'C') {
         i++;
+        continue;
+      case 'XC':
         value += 90;
-      } else {
-        value += 10;
-      }
-      continue;
-    }
-
-    if (char == 'L') {
-      value += 50;
-      continue;
-    }
-
-    if (char == 'C') {
-      if (nextChar == 'D') {
         i++;
+        continue;
+      case 'CD':
         value += 400;
-      } else if (nextChar == 'M') {
         i++;
+        continue;
+      case 'CM':
         value += 900;
-      } else {
+        i++;
+        continue;
+    }
+
+    switch (char) {
+      case 'I':
+        value += 1;
+        break;
+      case 'V':
+        value += 5;
+        break;
+      case 'X':
+        value += 10;
+        break;
+      case 'L':
+        value += 50;
+        break;
+      case 'C':
         value += 100;
-      }
-      continue;
-    }
-
-    if (char == 'D') {
-      value += 500;
-      continue;
-    }
-
-    if (char == 'M') {
-      value += 1000;
-      continue;
+        break;
+      case 'D':
+        value += 500;
+        break;
+      case 'M':
+        value += 1000;
+        break;
     }
   }
   return value;
