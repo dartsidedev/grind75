@@ -253,6 +253,18 @@ Space Complexity O(n) for the stack (either call stack for recursive or queue/st
 </details>
 
 
+
+<details>
+<summary><b>Implement Queue using Stacks</b> 🏷 <i>stack</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/implement_queue_using_stacks_test.dart) - [LeetCode - Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
+
+Have two stacks, and a phase internally whether we were pushing or popping off the queue.
+When changing phases, move all items from one stack to another first, then add or remove.
+</details>
+
+
+
 <details>
 <summary><b>First bad version</b> 🏷 <i>binary search</i></summary>
 
