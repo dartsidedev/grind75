@@ -303,10 +303,25 @@ Alternative II. You can also sort and compare, sort and put it into a stack, etc
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/reverse_linked_list_test.dart) - [LeetCode - Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
 Helpful: pre-head!
-
 TODO: check my past solutions, one of them must be intuitive enough to remember and solve in 3 minutes.
+</details>
+
+
+
+<details>
+<summary><b>Contains duplicate</b> 🏷 <i>array</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/contains_duplicate_test.dart) - [LeetCode - Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+
+Potential solutions:
+* brute force: double loop. TC O(n^2), SC O(1)
+* sort then look for duplicates. TC O(n log n + n), SC O(1). Mutates input! (or if it doesn't mutate, then it needs a copy O(n))
+* store seen in map, iterate over elements and check if already seen. TC O(n), SC O(n). Does not mutate input.
 
 </details>
+
+
+
 
 <details>
 <summary><b>Palindrome Number</b> 🏷 <i>math</i></summary>
