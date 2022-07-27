@@ -8,5 +8,18 @@
   "valid-anagram",
   "binary-search",
   "first-bad-version",
-  "ransom-note"
+  "ransom-note",
+  "flood-fill",
+  "implement-queue-using-stacks",
+  "palindrome-number",
+  "squares-of-a-sorted-array",
+  "reverse-linked-list",
+  "contains-duplicate",
+  "linked-list-cycle",
+  "longest-palindrome",
+  "roman-to-integer",
+  "majority-element",
+  "middle-of-the-linked-list",
+  "single-number",
+  "missing-number"
 ]
