@@ -310,6 +310,21 @@ Fourth approach: create reverted number, then compare integers.
 
 
 
+<details>
+<summary><b>Squares of a Sorted Array</b> 🏷 <i>array</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/squares_of_a_sorted_array_test.dart) - [LeetCode - Squared of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
+
+Must consider possible negative numbers!
+
+Very brute force solution (does not mutate input): Map square (TC: O(n), SC: O(n)), sort (TC: O(n log n), SC: O(1)).
+
+Brute force solution (mutates input, no extra space at all): Square each number in place (TC: O(n), SC: O(1)), sort the list (TC: O(n log n), SC: O(1)).
+
+Two-pointer solution: from one of the two ends of the list will come the next biggest square (postive, negative numbers).
+Move two pointers, and the biggest square will be added to a list. You can create a fixed size list beforehand, in this case, the list will be filled from the end (largest) to the start (smallest).
+Complexity: O(n), space O(1) (if we count the output: O(n)).
+</details>
 
 
 ## Misc
