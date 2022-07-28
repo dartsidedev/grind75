@@ -302,6 +302,9 @@ Solutions:
 * TC O(n^3). Three loops: two for moving the indices, one for calculating the sum
 * TC O(n^2). One for moving the start index, the other one for the end index and continuously updating the sum in the line. Biggest sum wins in the end.
 * TC O(n). Kadane (greedy?). Iterate over items. Keep track of max and "current max". When single item is better than the single item + previous, use only single item. No indices needed.
+* TC O(n log n), SC O(log n).
+
+TODO: Divide and Conquer
 </details>
 
 
