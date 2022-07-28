@@ -311,7 +311,7 @@ TODO: Divide and Conquer
 
 
 <details>
-<summary><b> Lowest Common Ancestor of a Binary Search Tree</b> 🏷 <i>binary search tree</i></summary>
+<summary><b>Lowest Common Ancestor of a Binary Search Tree</b> 🏷 <i>binary search tree</i></summary>
 
 > [Solutions in Dart](https://github.com/dartsidedev/grind75/blob/main/test/lowest_common_ancestor_of_a_binary_search_tree_test.dart)
 > [LeetCode - Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
@@ -319,6 +319,23 @@ TODO: Divide and Conquer
 Solution. If both input values are smaller than current, go to the left, if both bigger, go to the right.
 If one is smaller, the other one is bigger, it's an LCA.
 If current value matches, it's an LCA.  (the two LCA conditions can be "fused" into one, if you really want to)
+</details>
+
+
+
+<details>
+<summary><b>Balanced Binary Tree</b> 🏷 <i>binary tree</i></summary>
+
+> [Solutions in Dart](https://github.com/dartsidedev/grind75/blob/main/test/balanced_binary_tree_test.dart)
+> [LeetCode - Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)
+
+Solutions. Iterative, recursive.
+
+> a binary tree in which the left and right subtrees of every node differ in height by no more than 1.
+
+Get the height of the left and right subtrees. Use -1 to show that it is not balanced.
+
+TODO: Iterative
 </details>
 
 
