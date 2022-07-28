@@ -57,3 +57,24 @@ void main() {
     expect(lowestCommonAncestor(bst, 3, 0), 2);
   });
 }
+
+
+int lowestCommonAncestorAlternative(Node bst, int p, int q) {
+  var a = min(p, q), b = max(p, q), current = bst;
+
+  while (true) {
+    final c = current.value;
+
+    if (a < c && b < c) {
+      current = current.left!;
+      continue;
+    }
+
+    if (c < a && c < b) {
+      current = current.right!;
+      continue;
+    }
+
+    return c;
+  }
+}

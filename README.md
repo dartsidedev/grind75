@@ -318,7 +318,7 @@ TODO: Divide and Conquer
 
 Solution. If both input values are smaller than current, go to the left, if both bigger, go to the right.
 If one is smaller, the other one is bigger, it's an LCA.
-If current value matches, it's an LCA.
+If current value matches, it's an LCA.  (the two LCA conditions can be "fused" into one, if you really want to)
 </details>
 
 
