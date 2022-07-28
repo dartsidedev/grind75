@@ -61,7 +61,7 @@ bool get isAlphaNumericChar => RegExp(r'^[\w\d]$').hasMatch(this); // or RegExp(
 #### ASCII code units
 
 ```dart
-  bool get isAlphaNumericChar {
+bool get isAlphaNumericChar {
   final codeUnit = codeUnitAt(0);
   final isNumber = 48 <= codeUnit && codeUnit <= 57;
   final isUpperCase = 65 <= codeUnit && codeUnit <= 90;
@@ -121,7 +121,8 @@ and different ways to solve the challenges with its pros and cons.
 <summary><b>Two Sum</b> 🏷 <i>array</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/two_sum_test.dart)
-- [LeetCode - Two Sum](https://leetcode.com/problems/two-sum/)
+
+> [LeetCode - Two Sum](https://leetcode.com/problems/two-sum/)
 
 > input: exactly one solution. You may not use the same element twice.
 
@@ -150,7 +151,8 @@ Other solutions:
 <summary><b>Valid Parentheses</b> 🏷 <i>stack</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/valid_parentheses_test.dart)
-- [LeetCode - Two Sum](https://leetcode.com/problems/valid-parentheses/)
+
+> [LeetCode - Two Sum](https://leetcode.com/problems/valid-parentheses/)
 
 Push items to a stack when parenthesis/bracket is opening.
 Pop off when closing, and make sure they are matching.
@@ -164,7 +166,8 @@ Remember to pop off only if stack is not empty (or use peek).
 <summary><b>Merge Two Sorted Lists</b> 🏷 <i>linked list</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/merge_two_sorted_lists_test.dart)
-- [LeetCode - Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
+
+> [LeetCode - Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 
 Trick: pre-head pointer significantly simplifies the algorithm.
 While both lists are not empty, pick one off the lists and add to the results.
@@ -181,7 +184,8 @@ Consider empty nodes.
 <summary><b>Best Time to Buy and Sell Stock</b> 🏷 <i>array</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/best_time_to_buy_and_sell_stock_test.dart)
-- [LeetCode - Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+
+> [LeetCode - Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 
 Keep track of min price "so far".
 Current profit is price minus the min price so far.
@@ -206,10 +210,11 @@ Clarify: int vs num vs double.
 <summary><b>Valid Palindrome</b> 🏷 <i>string</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/valid_palindrome_test.dart)
-- [LeetCode - Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
 
-Obvious solution: filter invalid characters, keep only alphanumeric characters and convert to lowercase (`split`+`where`
-+`map`+`join`).
+> [LeetCode - Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
+
+Obvious solution: filter invalid characters, keep only alphanumeric characters and convert to lowercase
+(`split`+`where`+`map`+`join`).
 Then, check if palindrome: either two pointers, or reverse the string and compare against filtered values.
 
 Improvement: Start with two pointers, if a letter is not alphanumeric, move pointer to next alphanumeric.
@@ -222,7 +227,8 @@ not a palindrome".
 <summary><b>Invert Binary Tree</b> 🏷 <i>binary tree</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/invert_binary_tree_test.dart)
-- [LeetCode - Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)
+
+> [LeetCode - Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)
 
 Invert tree recursively: if null, return.
 Swap left and right children, then invert left and right subtrees.
@@ -239,7 +245,8 @@ TODO: Solve without recursion.
 <summary><b>Valid Anagram</b> 🏷 <i>string</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/valid_anagram_test.dart)
-- [LeetCode - Valid Anagram](https://leetcode.com/problems/valid-anagram/)
+
+> [LeetCode - Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 
 Return early if lengths don't match. Create frequency counter. Check if frequencies match.
 
@@ -259,7 +266,8 @@ That's wasteful if the strings are short (and anything less than a million chara
 <summary><b>Binary Search</b> 🏷 <i>binary search</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/binary_search_test.dart)
-- [LeetCode - Binary Search](https://leetcode.com/problems/binary-search/)
+
+> [LeetCode - Binary Search](https://leetcode.com/problems/binary-search/)
 
 Learn to write binary search, it doesn't really get much simpler than that.
 Pay attention to empty list, first element, last element. Practice templates.
@@ -271,8 +279,8 @@ Pay attention to empty list, first element, last element. Practice templates.
 <summary><b>Flood Fill</b> 🏷 <i>graph</i></summary>
 
 > [Iterative Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/flood_fill_test.dart)
-- [Recursive Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/flood_fill_recursive_test.dart)
-- [LeetCode - Flood Fill](https://leetcode.com/problems/flood-fill/)
+> [Recursive Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/flood_fill_recursive_test.dart)
+> [LeetCode - Flood Fill](https://leetcode.com/problems/flood-fill/)
 
 Depth-first search, either iteratively or recursively.
 
@@ -288,7 +296,8 @@ Space Complexity O(n) for the stack (either call stack for recursive or queue/st
 <summary><b>Implement Queue using Stacks</b> 🏷 <i>stack</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/implement_queue_using_stacks_test.dart)
-- [LeetCode - Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
+
+> [LeetCode - Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
 
 Have two stacks, and a phase internally whether we were pushing or popping off the queue.
 When changing phases, move all items from one stack to another first, then add or remove.
@@ -300,7 +309,8 @@ When changing phases, move all items from one stack to another first, then add o
 <summary><b>Linked List Cycle</b> 🏷 <i>linked list</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/linked_list_cycle_test.dart)
-- [LeetCode - Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
+
+> [LeetCode - Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
 
 Solutions:
 
@@ -317,7 +327,8 @@ Solutions:
 <summary><b>First bad version</b> 🏷 <i>binary search</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/first_bad_version_test.dart)
-- [LeetCode - First Bad Version](https://leetcode.com/problems/first-bad-version/)
+
+> [LeetCode - First Bad Version](https://leetcode.com/problems/first-bad-version/)
 
 Learn to write binary search, it doesn't really get much simpler than that.
 Pay attention to empty list, first element, last element. Practice templates.
@@ -329,7 +340,8 @@ Pay attention to empty list, first element, last element. Practice templates.
 <summary><b>Ransom Note</b> 🏷 <i>hash table</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/ransom_note_test.dart)
-- [LeetCode - Ransom Note](https://leetcode.com/problems/ransom-note/)
+
+> [LeetCode - Ransom Note](https://leetcode.com/problems/ransom-note/)
 
 For letter frequency counter, use map for unicode, use list of length 26 for ASCII lowercase.
 
@@ -349,7 +361,8 @@ Alternative II. You can also sort and compare, sort and put it into a stack, etc
 <summary><b>Longest Palindrome</b> 🏷 <i>string</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/longest_palindrome_test.dart)
-- [LeetCode - Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)
+
+> [LeetCode - Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)
 
 Build letter counter (frequency).
 Know your code units: A for 65, Z for 90, a for 97, z for 122.
@@ -364,7 +377,8 @@ Then, if there was an odd letter, we can add it to the middle (counts as +1).
 <summary><b>Reverse Linked List</b> 🏷 <i>linked list</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/reverse_linked_list_test.dart)
-- [LeetCode - Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+
+> [LeetCode - Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
 Helpful: pre-head!
 TODO: check my past solutions, one of them must be intuitive enough to remember and solve in 3 minutes.
@@ -376,7 +390,8 @@ TODO: check my past solutions, one of them must be intuitive enough to remember 
 <summary><b>Majority Element</b> 🏷 <i>array</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/majority_element_test.dart)
-- [LeetCode - Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+
+> [LeetCode - Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
 Potential solutions
 
@@ -401,8 +416,9 @@ TODO:
 <summary><b>Middle of the Linked List</b> 🏷 <i>linked list</i></summary>
 
 > [Solution in Dart (two pointers)](https://github.com/dartsidedev/grind75/blob/main/test/middle_of_the_linked_list_test.dart)
+
 - [Solution in Dart (two passes)](https://github.com/dartsidedev/grind75/blob/main/test/middle_of_the_linked_list_two_pass_test.dart)
-- [LeetCode - Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
+> [LeetCode - Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
 
 Potential solutions:
 
@@ -417,7 +433,8 @@ Potential solutions:
 <summary><b>Contains duplicate</b> 🏷 <i>array</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/contains_duplicate_test.dart)
-- [LeetCode - Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+
+> [LeetCode - Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
 
 Potential solutions:
 
@@ -434,7 +451,8 @@ Potential solutions:
 <summary><b>Roman to Integer</b> 🏷 <i>math</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/roman_to_integer_test.dart)
-- [LeetCode - Roman to Integer](https://leetcode.com/problems/roman-to-integer/)
+
+> [LeetCode - Roman to Integer](https://leetcode.com/problems/roman-to-integer/)
 
 Keep track of value so far.
 Iterate over the string.
@@ -451,7 +469,8 @@ Alternative solutions: [Left to Right](https://www.youtube.com/watch?v=3jdxYj3DD
 <summary><b>Single Number</b> 🏷 <i>binary</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/single_number_test.dart)
-- [LeetCode - Single Number](https://leetcode.com/problems/single-number/)
+
+> [LeetCode - Single Number](https://leetcode.com/problems/single-number/)
 
 > every element appears twice except for one
 
@@ -473,7 +492,8 @@ Solutions:
 <summary><b>Missing Number</b> 🏷 <i>binary</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/missing_number_test.dart)
-- [LeetCode - Missing Number](https://leetcode.com/problems/missing-number/)
+
+> [LeetCode - Missing Number](https://leetcode.com/problems/missing-number/)
 
 Solutions:
 
@@ -489,10 +509,11 @@ Solutions:
 <summary><b>Palindrome Number</b> 🏷 <i>math</i></summary>
 
 > [Solution in Dart with Chopping digits](https://github.com/dartsidedev/grind75/blob/main/test/palindrome_number_test.dart)
+
 - [Solution in Dart with Reverted Number](https://github.com/dartsidedev/grind75/blob/main/test/palindrome_number_reverted_test.dart)
 - [Solution in Dart with List](https://github.com/dartsidedev/grind75/blob/main/test/palindrome_number_list_test.dart)
 - [Solution in Dart with Strings](https://github.com/dartsidedev/grind75/blob/main/test/palindrome_number_string_test.dart)
-- [LeetCode - Palindrome Number](https://leetcode.com/problems/palindrome-number/)
+> [LeetCode - Palindrome Number](https://leetcode.com/problems/palindrome-number/)
 
 First approach: convert to string, then solve it as if was a string.
 
@@ -509,7 +530,8 @@ Fourth approach: create reverted number, then compare integers.
 <summary><b>Squares of a Sorted Array</b> 🏷 <i>array</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/squares_of_a_sorted_array_test.dart)
-- [LeetCode - Squared of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
+
+> [LeetCode - Squared of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
 
 Must consider possible negative numbers!
 
