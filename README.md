@@ -311,6 +311,19 @@ TODO: Divide and Conquer
 
 
 <details>
+<summary><b> Lowest Common Ancestor of a Binary Search Tree</b> 🏷 <i>binary search tree</i></summary>
+
+> [Solutions in Dart](https://github.com/dartsidedev/grind75/blob/main/test/lowest_common_ancestor_of_a_binary_search_tree_test.dart)
+> [LeetCode - Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+
+Solution. If both input values are smaller than current, go to the left, if both bigger, go to the right.
+If one is smaller, the other one is bigger, it's an LCA.
+If current value matches, it's an LCA.
+</details>
+
+
+
+<details>
 <summary><b>Implement Queue using Stacks</b> 🏷 <i>stack</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/implement_queue_using_stacks_test.dart)
