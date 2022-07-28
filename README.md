@@ -406,6 +406,16 @@ Alternative II. You can also sort and compare, sort and put it into a stack, etc
 
 
 <details>
+<summary><b>Climbing Stairs</b> 🏷 <i>dynamic programming</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/climbing_stairs_test.dart)
+
+> [LeetCode - Longest Palindrome](https://leetcode.com/problems/climbing-stairs/)
+</details>
+
+
+
+<details>
 <summary><b>Longest Palindrome</b> 🏷 <i>string</i></summary>
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/longest_palindrome_test.dart)
