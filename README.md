@@ -411,6 +411,8 @@ Alternative II. You can also sort and compare, sort and put it into a stack, etc
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/climbing_stairs_test.dart)
 
 > [LeetCode - Longest Palindrome](https://leetcode.com/problems/climbing-stairs/)
+
+It's Fibonacci's twin sister.
 </details>
 
 
@@ -449,7 +451,7 @@ TODO: check my past solutions, one of them must be intuitive enough to remember 
 
 > [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/majority_element_test.dart)
 
-> [LeetCode - Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+> [LeetCode - Majority Element](https://leetcode.com/problems/majority-element/)
 
 Potential solutions
 
@@ -465,8 +467,20 @@ TODO:
 
 * Boyer-Moore
 * Divide and Conquer
-
 </details>
+
+
+
+<details>
+<summary><b>Add Binary</b> 🏷 <i>binary</i></summary>
+
+> [Solution in Dart](https://github.com/dartsidedev/grind75/blob/main/test/add_binary_test.dart)
+
+> [LeetCode - Add Binary](https://leetcode.com/problems/add-binary/)
+
+Add Binary.
+</details>
+
 
 
 
