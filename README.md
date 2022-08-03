@@ -637,13 +637,22 @@ Possible solutions:
 <details>
 <summary><b>Backspace String Compare</b></b> 🏷 <i>stack</i></summary>
 
-> [Solution](https://github.com/dartsidedev/grind75/blob/main/test/backspace_string_compare_test.dart)
+> [Solution](./test/backspace_string_compare_test.dart)
 
 > [LeetCode](https://leetcode.com/problems/backspace-string-compare/)
 
 * build two stacks based on inputs: if `#`, pop off the stack. Then, compare the two stacks: check length first, then pop the items of and if there is no match, return false. TC O(n), SC O(n)
 * iterate from the end. If `#`, continue. Char-generator function, for both, get next, compare. TC O(n), SC O(1)
+</details>
 
+
+<details>
+<summary><b>Number of 1 Bits</b> 🏷 <i>binary</i></summary>
+
+> [Solution](./test/number_of_1_bits_test.dart)
+> [LeetCode](https://leetcode.com/problems/number-of-1-bits/)
+
+Go over the binary operators and you will be fine.
 </details>
 
 
