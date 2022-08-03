@@ -619,6 +619,28 @@ case, the list will be filled from the end (largest) to the start (smallest).
 Complexity: O(n), space O(1) (if we count the output: O(n)).
 </details>
 
+
+
+
+<details>
+<summary><b>K Closest Points to Origin</b> 🏷 <i>heap</i></summary>
+
+> [Solutions in Dart](https://github.com/dartsidedev/grind75/blob/main/test/k_closest_points_to_origin_test.dart)
+
+> [LeetCode](https://leetcode.com/problems/k-closest-points-to-origin/)
+
+* Helpful math knowledge: do not need sqrt, just use "x * x + y * y"
+* Align with interviewer: could the return value be an Iterable?
+
+Possible solutions:
+* Total brute force: double loop: when smallest item found, remove it from list, copy into results.
+* Sort list by "square sums" TC O(n log n), SC O(1). Copy first k elements into a list TC O(k), SC O(k)
+* Add all elements into a min heap TC O(n), SC O(n). "Pop off" the smallest k elements TC O(k log n) (result could be an iterable, not necessarily a list)
+* Add k elements into a max heap. After the kth, every time you add something into the heap, pop off the largest value. At the end, add remaining items to the result (either as list or iterable).
+* TODO: Quick Select
+</details>
+
+
 ## Misc
 
 ### Save your completed questions
