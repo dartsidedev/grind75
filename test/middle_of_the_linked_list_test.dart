@@ -11,6 +11,25 @@ int middleOfTheLinkedList(Node head) {
   return slow!.value;
 }
 
+int middleOfTheLinkedListTwoPass(Node head) {
+  var length = 0;
+  Node? node = head;
+  while (node != null) {
+    length++;
+    node = node.next;
+  }
+  node = head;
+  final middleIndex = length ~/ 2;
+
+  var i = 0;
+  while (i < middleIndex) {
+    node = node?.next;
+    i++;
+  }
+
+  return node!.value;
+}
+
 class Node {
   Node(this.value, [this.next]);
 
