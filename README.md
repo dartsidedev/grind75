@@ -631,6 +631,15 @@ Go over the binary operators and you will be fine.
 </details>
 
 
+<details>
+<summary><b>Maximum Depth of Binary Tree</b> 🏷 <i>binary tree</i></summary>
+
+> [Solution](./test/maximum_depth_of_binary_tree_test.dart)
+> [LeetCode](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
+
+Recursive, iterative solutions. Depth = max(left, right) + 1.
+</details>
+
 ## Misc
 
 ### Save your completed questions
