@@ -640,6 +640,25 @@ Go over the binary operators and you will be fine.
 Recursive, iterative solutions. Depth = max(left, right) + 1.
 </details>
 
+
+
+<details>
+<summary><b>Diameter of a Binary Tree</b> 🏷 <i>binary tree</i></summary>
+
+> [Solution](./test/diameter_of_a_binary_tree_test.dart)
+> [LeetCode](https://leetcode.com/problems/diameter-of-binary-tree/)
+
+Calculate height for each node: height = max(left, right) + 1.
+Calculate diameter for each node: diameter = leftHeight + rightHeight.
+While calculating the heights and diameters, update "max diameter".
+
+Do it recursively, and iteratively.
+
+Iterative postorder traversal is easy with two stack (though also possible with one), and you keep track of heights in
+map of nodes to heights.
+
+</details>
+
 ## Misc
 
 ### Save your completed questions
