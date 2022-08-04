@@ -669,6 +669,18 @@ map of nodes to heights.
 
 </details>
 
+
+<details>
+<summary><b>Counting bits</b> 🏷 <i>binary</i></summary>
+
+> [Solution](./test/counting_bits_test.dart)
+> [LeetCode](https://leetcode.com/problems/countings-bits/)
+
+Solutions:
+* number of bits, n times...
+* TODO: understand and solve all the other solutions
+</details>
+
 ## Misc
 
 ### Save your completed questions
