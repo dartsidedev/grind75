@@ -290,9 +290,12 @@ Space Complexity O(n) for the stack (either call stack for recursive or queue/st
 > [LeetCode](https://leetcode.com/problems/maximum-subarray/)
 
 Solutions:
+
 * TC O(n^3). Three loops: two for moving the indices, one for calculating the sum
-* TC O(n^2). One for moving the start index, the other one for the end index and continuously updating the sum in the line. Biggest sum wins in the end.
-* TC O(n). Kadane (greedy?). Iterate over items. Keep track of max and "current max". When single item is better than the single item + previous, use only single item. No indices needed.
+* TC O(n^2). One for moving the start index, the other one for the end index and continuously updating the sum in the
+  line. Biggest sum wins in the end.
+* TC O(n). Kadane (greedy?). Iterate over items. Keep track of max and "current max". When single item is better than
+  the single item + previous, use only single item. No indices needed.
 * TC O(n log n), SC O(log n).
 
 TODO: Divide and Conquer
@@ -450,6 +453,7 @@ TODO:
 
 * Boyer-Moore
 * Divide and Conquer
+
 </details>
 
 
@@ -603,11 +607,15 @@ Complexity: O(n), space O(1) (if we count the output: O(n)).
 * Align with interviewer: could the return value be an Iterable?
 
 Possible solutions:
+
 * Total brute force: double loop: when smallest item found, remove it from list, copy into results.
 * Sort list by "square sums" TC O(n log n), SC O(1). Copy first k elements into a list TC O(k), SC O(k)
-* Add all elements into a min heap TC O(n), SC O(n). "Pop off" the smallest k elements TC O(k log n) (result could be an iterable, not necessarily a list)
-* Add k elements into a max heap. After the kth, every time you add something into the heap, pop off the largest value. At the end, add remaining items to the result (either as list or iterable).
+* Add all elements into a min heap TC O(n), SC O(n). "Pop off" the smallest k elements TC O(k log n) (result could be an
+  iterable, not necessarily a list)
+* Add k elements into a max heap. After the kth, every time you add something into the heap, pop off the largest value.
+  At the end, add remaining items to the result (either as list or iterable).
 * TODO: Quick Select
+
 </details>
 
 <details>
@@ -616,8 +624,10 @@ Possible solutions:
 > [Solution](./test/backspace_string_compare_test.dart)
 > [LeetCode](https://leetcode.com/problems/backspace-string-compare/)
 
-* build two stacks based on inputs: if `#`, pop off the stack. Then, compare the two stacks: check length first, then pop the items of and if there is no match, return false. TC O(n), SC O(n)
+* build two stacks based on inputs: if `#`, pop off the stack. Then, compare the two stacks: check length first, then
+  pop the items of and if there is no match, return false. TC O(n), SC O(n)
 * iterate from the end. If `#`, continue. Char-generator function, for both, get next, compare. TC O(n), SC O(1)
+
 </details>
 
 
