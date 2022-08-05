@@ -681,6 +681,17 @@ Solutions:
 * TODO: understand and solve all the other solutions
 </details>
 
+<details>
+<summary><b>Same tree</b> 🏷 <i>binary tree</i></summary>
+
+> [Solution](./test/same_tree_test.dart)
+> [LeetCode](https://leetcode.com/problems/same-tree/)
+
+Solutions:
+* override ==
+* recursive
+</details>
+
 ## Misc
 
 ### Save your completed questions
