@@ -681,6 +681,8 @@ Solutions:
 * TODO: understand and solve all the other solutions
 </details>
 
+
+
 <details>
 <summary><b>Same tree</b> 🏷 <i>binary tree</i></summary>
 
@@ -690,7 +692,21 @@ Solutions:
 Solutions:
 * override ==
 * recursive
+* iterative (use stack)
 </details>
+
+
+
+<details>
+<summary><b>Subtree of Another Tree</b> 🏷 <i>binary tree</i></summary>
+
+> [Solution](./test/subtree_of_another_tree_test.dart)
+> [LeetCode](https://leetcode.com/problems/subtree-of-another-tree/)
+
+Solutions:
+* See same tree for comparing two trees. Traverse the tree and check each node.
+</details>
+
 
 ## Misc
 
