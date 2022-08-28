@@ -708,6 +708,31 @@ Solutions:
 </details>
 
 
+<details>
+<summary><b>Reverse Bits</b> 🏷 <i>binary</i></summary>
+
+> [Solution](./test/reverse_bits_test.dart)
+> [LeetCode](https://leetcode.com/problems/reverse-bits)
+
+Get rightmost bit of the value and add it to the result.
+Then shift the input value to the right and shift the result to the left.
+
+Reminder: know your [bitwise operators](https://www.tutorialspoint.com/dart_programming/dart_programming_operators.htm):
+AND, OR, XOR, NOT, left and right shifts.
+
+According to [Numbers in Dart](https://dart.dev/guides/language/numbers):
+
+> Depending on the platform, those numeric types (`int` and `double`) have different, hidden implementations.
+> In particular, Dart has two very different types of targets it compiles to:
+> **native** (most often, a 64-bit mobile or desktop processor)
+> and **web** (JavaScript as the primary execution engine).
+
+Keep in mind that on JavaScript, that "JavaScript converts numbers into 32 bits before the implementation of bitwise operators"
+which can lead to [surprising behavior](https://stackoverflow.com/a/73471501/4541492).
+
+</details>
+
+
 ## Misc
 
 ### Save your completed questions
