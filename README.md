@@ -24,6 +24,21 @@ folder.
 
 Here, I summarize the core ideas, Dart syntax, data structures or algorithms that I keep forgetting.
 
+### Sorting
+
+You can find the default implementation of `List.sort` in [`github.com/dart-lang`'s `sdk/lib/internal/sort.dart`](https://github.com/dart-lang/sdk/blob/main/sdk/lib/internal/sort.dart).
+
+It's the dual-pivot quicksort algorithm as presented in 
+[Vladimir Yaroslavskiy's paper](https://codeblab.com/wp-content/uploads/2009/09/DualPivotQuicksort.pdf).
+It uses two pivot elements (so partitions to three parts).
+
+The dual pivot quicksort algorithm reduces the average number of swaps by [20%](https://www.reddit.com/r/programming/comments/9jj5z/vladimir_yaroslavskiys_dualpivot_quicksort/).
+The average number of comparisons stays the same.
+
+On average, it takes $O(n \log n)$ comparisons, in the worst case $O(n^2)$.
+
+For lists with a length less than 32, Dart uses [insertion sort](https://en.wikipedia.org/wiki/Insertion_sort), $O(n^2)$.
+
 ### `Queue`
 
 A `Queue` is a collection that can be manipulated at both ends.
