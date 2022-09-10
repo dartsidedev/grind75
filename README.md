@@ -783,6 +783,25 @@ $n$ is the length of the input list.
 
 </details>
 
+<details>
+<summary><b>Sort Colors</b> 🏷 <i>array</i></summary>
+
+> [Solution](./test/sort_colors_test.dart)
+> [LeetCode](https://leetcode.com/problems/sort-colors/)
+
+If we could use Dart's built-in sorting algorithm, it's a one-liner: dual pivot quicksort $O(n \log n)$ average case, $O(n^2)$ worst case.
+
+We know that the possible values can only be 0, 1, 2, therefore,
+we can use [counting sort](https://en.wikipedia.org/wiki/Counting_sort).
+
+**Complexity analysis**.
+$n$ is the length of the input list.
+**Time complexity**: $O(n)$, as you iterate over the whole list first to count, then to overwrite.
+**Space complexity**: $O(1)$, as we only need three supporting counter variables.
+
+TODO: There is another one-pass solution I didn't check. Dutch flag.
+</details>
+
 ## Misc
 
 ### Save your completed questions
