@@ -732,6 +732,22 @@ which can lead to [surprising behavior](https://stackoverflow.com/a/73471501/454
 
 </details>
 
+<details>
+<summary><b>Evaluate Reverse Polish Notation</b> 🏷 <i>stack</i></summary>
+
+> [Solution](./test/evaluate_reverse_polish_notation_test.dart)
+> [LeetCode](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
+
+Iterate over input.
+If it's a number, add to stack.
+If it's an operation, perform operation on top 2 items in the stack, and push result back to stack.
+
+**Complexity analysis**.
+$n$ is the length of the input list.
+**Time complexity**: $O(n)$, as you iterate over the whole list in a single pass. Pushing to and popping off the stack is $O(1)$.
+**Space complexity**: $O(n)$, as the supporting stack can never be more than half the length of the input.
+
+</details>
 
 ## Misc
 
