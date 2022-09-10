@@ -24,31 +24,50 @@ folder.
 
 Here, I summarize the core ideas, Dart syntax, data structures or algorithms that I keep forgetting.
 
-#### Queue
+### `Queue`
 
-Implementers of `Queue`.
+A `Queue` is a collection that can be manipulated at both ends.
+
+Its implementers, `DoubleLinkedQueue` and `ListQueue`, are efficient for queue or stack usage.
 
 ```dart
-import 'dart:collection'; // Queue, DoubleLinkedQueue, ListQueue
+// Queue, DoubleLinkedQueue, ListQueue
+import 'dart:collection';
+```
 
-final q1 = DoubleLinkedQueue<int>();
+The `DoubleLinkedQueue` is an implementation of the `Queue` based on a double-linked list.
+It allows **constant time add, remove-at-ends and peek operations**.
 
+```dart
+final doubleLinkedQueue = DoubleLinkedQueue<int>();
+```
+
+The `ListQueue` is a list based `Queue`.
+It keeps a cyclic buffer of elements, and grows to a larger buffer when it fills up.
+This guarantees **constant time peek and remove operations, and amortized constant time add operations**.
+
+```dart
 final initialCapacity = 16; // Default init capacity is 8.
-final q2 = ListQueue<int>(initialCapacity);
+final listQueue = ListQueue<int>(initialCapacity);
+```
+
+#### Queue
+
+```dart
+extension MinimalistQueue<E> on Queue<E> {
+  void enqueue(E value) => addLast(value);
+  E dequeue() => removeFirst(); // throws StateError if empty!
+  E? peek() => firstOrNull; // For most problems, peek is not needed.
+}
 ```
 
 #### Stack
 
 ```dart
-import 'dart:collection'; // Queue
-import 'package:collection/collection.dart'; // firstOrNull
-
-extension QueueStack<E> on Queue<E> {
+extension MinimalistStack<E> on Queue<E> {
   void push(E value) => addLast(value);
-
   E pop() => removeLast(); // throws StateError if empty!
-  // For most problems, peek is not needed.
-  E? peek() => firstOrNull;
+  E? peek() => firstOrNull; // For most problems, peek is not needed.
 }
 ```
 
