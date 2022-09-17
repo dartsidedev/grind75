@@ -68,8 +68,8 @@ final listQueue = ListQueue<int>(initialCapacity);
 
 |   | add (to ends) | remove (at ends) | peek |
 |---|:-:|:-:|:-:|
-| `ListQueue` | $O(1)$ |  $O(1)$ |  $O(1)$ |
-| `DoubleLinkedQueue`  | amortized $O(1)$ |  $O(1)$ |  $O(1)$ |
+| `DoubleLinkedQueue` | $O(1)$ |  $O(1)$ |  $O(1)$ |
+| `ListQueue`  | amortized $O(1)$ |  $O(1)$ |  $O(1)$ |
 
 **Minimalist extensions for stacks and queues**.
 
