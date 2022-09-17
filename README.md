@@ -26,18 +26,22 @@ Here, I summarize the core ideas, Dart syntax, data structures or algorithms tha
 
 ### Sorting
 
-You can find the default implementation of `List.sort` in [`github.com/dart-lang`'s `sdk/lib/internal/sort.dart`](https://github.com/dart-lang/sdk/blob/main/sdk/lib/internal/sort.dart).
+You can find the default implementation of `List.sort`
+in [`github.com/dart-lang`'s `sdk/lib/internal/sort.dart`](https://github.com/dart-lang/sdk/blob/main/sdk/lib/internal/sort.dart)
+.
 
-It's the dual-pivot quicksort algorithm as presented in 
+It's the dual-pivot quicksort algorithm as presented in
 [Vladimir Yaroslavskiy's paper](https://codeblab.com/wp-content/uploads/2009/09/DualPivotQuicksort.pdf).
 It uses two pivot elements (so partitions to three parts).
 
-The dual pivot quicksort algorithm reduces the average number of swaps by [20%](https://www.reddit.com/r/programming/comments/9jj5z/vladimir_yaroslavskiys_dualpivot_quicksort/).
+The dual pivot quicksort algorithm reduces the average number of swaps
+by [20%](https://www.reddit.com/r/programming/comments/9jj5z/vladimir_yaroslavskiys_dualpivot_quicksort/).
 The average number of comparisons stays the same.
 
 On average, it takes $O(n \log n)$ comparisons, in the worst case $O(n^2)$.
 
-For lists with a length less than 32, Dart uses [insertion sort](https://en.wikipedia.org/wiki/Insertion_sort), $O(n^2)$.
+For lists with a length less than 32, Dart uses [insertion sort](https://en.wikipedia.org/wiki/Insertion_sort), $O(n^2)
+$.
 
 ### Queue
 
@@ -62,24 +66,27 @@ It keeps a cyclic buffer of elements, and grows to a larger buffer when it fills
 This guarantees **constant time peek and remove operations, and amortized constant time add operations**.
 
 ```dart
+
 final initialCapacity = 16; // Default init capacity is 8.
 final listQueue = ListQueue<int>(initialCapacity);
 ```
 
-|   | add (to ends) | remove (at ends) | peek |
+| | add (to ends) | remove (at ends) | peek |
 |---|:-:|:-:|:-:|
-| `DoubleLinkedQueue` | $O(1)$ |  $O(1)$ |  $O(1)$ |
-| `ListQueue`  | amortized $O(1)$ |  $O(1)$ |  $O(1)$ |
+| `DoubleLinkedQueue` | $O(1)$ | $O(1)$ | $O(1)$ |
+| `ListQueue`  | amortized $O(1)$ | $O(1)$ | $O(1)$ |
 
 **Minimalist extensions for stacks and queues**.
 
-Sometimes, I find that the traditional queue operations come easier, especially if I am under stress and I feel pressured to be fast and clear while at an interview.
+Sometimes, I find that the traditional queue operations come easier, especially if I am under stress and I feel
+pressured to be fast and clear while at an interview.
 
 For this reason, I prefer to add the "minimalist" queue and stack static extension methods on the `Queue`.
 
 ```dart
 extension MinimalistQueue<E> on Queue<E> {
   void enqueue(E value) => addLast(value);
+
   E dequeue() => removeFirst(); // throws StateError if empty!
   E? peek() => firstOrNull; // For most problems, peek is not needed.
 }
@@ -88,26 +95,54 @@ extension MinimalistQueue<E> on Queue<E> {
 ```dart
 extension MinimalistStack<E> on Queue<E> {
   void push(E value) => addLast(value);
+
   E pop() => removeLast(); // throws StateError if empty!
   E? peek() => lastOrNull; // For most problems, peek is not needed.
 }
 ```
 
-#### Regex
+### Regex
 
 ```dart
-bool get isAlphaNumericChar => RegExp(r'^[\w\d]$').hasMatch(this); // or RegExp(r'^[a-zA-Z0-9]$')
+// Assumes string's of length 1
+bool get isAlphaNumericChar => RegExp(r'^[\w\d]$').hasMatch(this);
+// or RegExp(r'^[a-zA-Z0-9]$')
 ```
 
-#### ASCII code units
+### ASCII code units
+
+For day-to-day work, knowing and remembering the ASCII code units of different characters is completely useless.
+
+However, in many coding challenges, it can come in handy.
+
+|           |   starts |      ends | count |
+|-----------|---------:|----------:|------:|
+| numbers   | 48 (`0`) |  57 (`9`) |    10 |
+| uppercase | 65 (`A`) |  90 (`Z`) |    26 |
+| lowercase | 97 (`a`) | 122 (`z`) |    26 |
+
+For example, if you know that the input is ASCII-only, you can determine very easily
+whether a character is alphanumeric using code units.
 
 ```dart
+// Assumes string's of length 1
 bool get isAlphaNumericChar {
   final codeUnit = codeUnitAt(0);
   final isNumber = 48 <= codeUnit && codeUnit <= 57;
   final isUpperCase = 65 <= codeUnit && codeUnit <= 90;
   final isLowerCase = 97 <= codeUnit && codeUnit <= 122;
   return isNumber || isLowerCase || isUpperCase;
+}
+```
+
+In this example, let's say we know about the input string that it only contains lowercase letters (English alphabet).
+If we need to store, for example, a counter for each letter in a list, we can write this static extension getter
+to convert from strings to the indices for the list.
+
+```dart
+extension CharToIndex on String {
+  // Assumes only lowercase and length == 1 
+  int get charIndex => codeUnitAt(0) - 97;
 }
 ```
 
@@ -127,23 +162,54 @@ TODO: Check card: https://leetcode.com/explore/learn/card/binary-search/
 
 Must know it well!
 
+### Mix
+
+```dart
+import 'dart:math';
+final maxValue = max(a, b);
+// or
+import 'dart:math' as math;
+final maxValue = math.max(a, b);
+```
+
+```dart
+import 'package:collection/collection.dart';
+
+/// Equality on lists.
+///
+/// Two lists are equal if they have the same length and their elements
+/// at each index are equal.
+bool match(List<int> a, List<int> b) => const ListEquality().equals(a, b);
+```
+
+```dart
+// part of dart core
+
+// Check whether two references are to the same object.
+external bool identical(Object? a, Object? b);
+```
+
 ## Disclaimers
 
 ### Coding conventions
 
-In some cases, I do not follow the official Dart style guide
-(or other rules that in most popular linting libraries are required).
+I do not always follow the official Dart style guide
+or rules that are in most popular linting libraries enabled.
+
 You can find below the list of rules that I do not follow with a reason as to why that is.
 
-* `curly_braces_in_flow_control_structures`: sometimes I don't want to "spend" three lines just to write a
-  simple `while` loop.
-* `avoid_multiple_declarations_per_line`: sometimes two declarations just "belong together"
+* `curly_braces_in_flow_control_structures`: I don't want to "spend" three lines just to write a simple `while`, `if`, `for`.
+* `avoid_multiple_declarations_per_line`: sometimes two declarations just belong together, and at interviews, you really don't have enough time to declare everything in a new line.
 
 ### Test quality
 
-Most of the time, I didn't spend time writing the perfect test description for my tests.
-This doesn't mean that in your day job, you should write the tests like me, it just means that I wanted to focus on
-problem solving (the solution) and making sure that I have enough tests to spot any potential mistakes (as unfortunately
+I didn't spend time writing the perfect test description for my tests.
+I made sure that I have enough tests to spot any potential mistakes and that I add the examples from LeetCode.
+
+This doesn't mean that in your day job, you should write the tests like I did in this repository,
+it just means that I wanted to focus on solving the problem correctly.
+
+Unfortunately, LeetCode doesn't work with Dart, if you want to change that, upvote this issue.
 LeetCode doesn't do it for me for Dart).
 
 ### Solution descriptions
@@ -164,25 +230,31 @@ and different ways to solve the challenges with its pros and cons.
 > [Solution](./test/two_sum_test.dart)
 > [LeetCode](https://leetcode.com/problems/two-sum/)
 
-> input: exactly one solution. You may not use the same element twice.
+> Exactly one solution. You may not use the same element twice.
+> Return indices of the two numbers such that they add up to target.
 
-Iterate over numbers: store in map: number is the key, index is the value.
-As you iterate, look up in the map whether the current number has a complement in the map that adds up to target, return
-indices if it's a solution.
-If the current number and none of the map entries add up to the target number, add the number to the map.
-Continue until solution is found.
+We need to return the indices.
+Create a map where _the key is the number value_ and _the value is its index_.
 
-Complexity.
-n is the number of elements in the list.
-Time O(n), as you might iterate over the whole list.
-Space O(n) you need a map.
+Iterate over numbers: store visited numbers and their indices in the map.
+
+As you iterate, check whether current number has a _complement_ in the map that adds up to target.
+If it does, return the indices.
+If it doesn't, add number to the map.
+
+**Complexity analysis**: $n$ is the number of elements in the list.
+* **Time complexity**: $O(n)$, as you might iterate over the whole list.
+* **Space complexity**: $O(n)$, as you might need to store almost all elements and their indices in the map.
 
 Other solutions:
 
-1. Brute force: double loop, return when hit target. Time O(n^2), space O(1).
-2. [Sort list](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted) first, then two pointers. Need to keep
-   track of the original indices or need to use new list, though, extra space!
-
+* **Brute force**: double loop, return when the two numbers add up to the target.
+  * **Time complexity**: $O(n^2)$, for each of $n$ elements, we try to find its complement by looping through the rest of the list. 
+  * **Space complexity**: $O(1)$, no extra space that depends on the input size is necessary.
+* [Sort list](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted) first, then on a sorted list, find values with two pointers (from start and end).
+  * **Time complexity**: $O(n \log n)$, because sort $O(n \log n)$ + two pointers $O(n)$.
+  * **Space complexity**: $O(n)$, sort and two-pointers would be possible with $O(1)$, but we need to store original indices $O(n)$.
+  * This solution, as the list is not already sorted and we need to return the original indices, is fairly complicated, and doesn't perform too well (neither in space nor time complexity).
 </details>
 
 
@@ -193,10 +265,18 @@ Other solutions:
 > [Solution](./test/valid_parentheses_test.dart)
 > [LeetCode](https://leetcode.com/problems/valid-parentheses/)
 
-Push items to a stack when parenthesis/bracket is opening.
+> input string consists of parentheses/brackets only `()[]{}`
+
+Push opening parenthesis/bracket to a stack.
 Pop off when closing, and make sure they are matching.
 Don't forget to check at the end if the stack is empty.
 Remember to pop off only if stack is not empty (or use peek).
+
+**Complexity analysis**: **n** is the length of the input string.
+* **Time complexity**: $O(n)$, as you iterate over the whole input string, and potentially adding half of them to a stack. Pushing and popping on a stack can be a $O(1)$ operation if the stack is efficient.
+* **Space complexity**: $O(n)$, we need a stack that might contain $n$ elements.
+
+[Solution variant](https://leetcode.com/problems/valid-parentheses/discuss/500491/Rust-0ms), you could immediately push the closing parenthesis onto the stack, it actually ends up looking pretty nice.
 </details>
 
 
