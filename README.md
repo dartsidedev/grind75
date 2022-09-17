@@ -297,7 +297,7 @@ Return the pre-head's next as result.
 
 Consider empty nodes. Do not assume the two lists are of equal length.
 
-**Complexity analysis**: $n$ and $m$ are the lengths of the input linked lists.
+**Complexity analysis**, $n$ and $m$ are the lengths of the input linked lists:
 * **Time complexity**: $O(n+m)$ (linear with total length), because we simply iterate over both lists and picking the correct.
 * **Space complexity**: $O(1)$, only need a couple of variables, constant space, and the returned list consists of nodes already created before the solution algorithm ran.
 
@@ -323,7 +323,7 @@ Current profit is price minus the min price so far.
 Update max profit if current profit greater.
 Handle negative profit edge case (must return 0).
 
-**Complexity analysis** ($n$ is the length of the list):
+**Complexity analysis**, $n$ is the length of the list:
 * **Time complexity**: $O(n)$, as you iterate over the whole list in a single pass.
 * **Space complexity**: $O(1)$, because you only need two variables holding integers.
 
@@ -346,7 +346,7 @@ If a letter is not alphanumeric, move pointer to next alphanumeric.
 Whenever the two pointers contain alphanumeric chars, compare.
 If the values for the two pointers don't match, return "not a palindrome".
 
-**Complexity analysis** ($n$ is the length of the string):
+**Complexity analysis**, $n$ is the length of the string:
 * **Time complexity**: $O(n)$, as we traverse over each character at most once.
 * **Space complexity**: $O(1)$, because you only need two variables holding integers.
 
@@ -370,7 +370,7 @@ Invert tree recursively. Swap children, then invert left and right subtrees. Han
 
 Both pre-order and post-order traversal give the right answer.
 
-**Complexity analysis** ($n$ is the number of the nodes in the tree):
+**Complexity analysis**, $n$ is the number of the nodes in the tree:
 * **Time complexity**: $O(n)$, we visit each node once.
 * **Space complexity**: $O(n)$, the recursion stack will be as high as the tree, which in the worst case is equal to the number of nodes.
 
