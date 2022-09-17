@@ -39,7 +39,7 @@ On average, it takes $O(n \log n)$ comparisons, in the worst case $O(n^2)$.
 
 For lists with a length less than 32, Dart uses [insertion sort](https://en.wikipedia.org/wiki/Insertion_sort), $O(n^2)$.
 
-### `Queue`
+### Queue
 
 A `Queue` is a collection that can be manipulated at both ends.
 
@@ -66,7 +66,16 @@ final initialCapacity = 16; // Default init capacity is 8.
 final listQueue = ListQueue<int>(initialCapacity);
 ```
 
-#### Queue
+|   | add (to ends) | remove (at ends) | peek |
+|---|:-:|:-:|:-:|
+| `ListQueue` | $O(1)$ |  $O(1)$ |  $O(1)$ |
+| `DoubleLinkedQueue`  | amortized $O(1)$ |  $O(1)$ |  $O(1)$ |
+
+**Minimalist extensions for stacks and queues**.
+
+Sometimes, I find that the traditional queue operations come easier, especially if I am under stress and I feel pressured to be fast and clear while at an interview.
+
+For this reason, I prefer to add the "minimalist" queue and stack static extension methods on the `Queue`.
 
 ```dart
 extension MinimalistQueue<E> on Queue<E> {
@@ -76,13 +85,11 @@ extension MinimalistQueue<E> on Queue<E> {
 }
 ```
 
-#### Stack
-
 ```dart
 extension MinimalistStack<E> on Queue<E> {
   void push(E value) => addLast(value);
   E pop() => removeLast(); // throws StateError if empty!
-  E? peek() => firstOrNull; // For most problems, peek is not needed.
+  E? peek() => lastOrNull; // For most problems, peek is not needed.
 }
 ```
 
