@@ -1,43 +1,45 @@
 import 'package:test/test.dart';
 
-bool isValidPalindrome(String source) {
-  int i = 0, j = source.length - 1;
+/// A phrase is a palindrome if, after converting all uppercase letters into
+/// lowercase letters and removing all non-alphanumeric characters,
+/// it reads the same forward and backward.
+/// Alphanumeric characters include letters and numbers.
+///
+/// Given a string s, return true if it is a palindrome, or false otherwise.
+bool isPalindrome(String s) {
+  var i = 0, j = s.length - 1;
 
   while (i < j) {
-    while (!source[i].isAlphaNumericChar) i++;
-    while (!source[j].isAlphaNumericChar) j--;
-    if (!source[i++].caseInsensitiveEquals(source[j--])) return false;
+    while (i < j && !s[i].isAlphaNumeric) i++;
+    while (i < j && !s[j].isAlphaNumeric) j--;
+    if (s[i++].lower != s[j--].lower) return false;
   }
 
   return true;
 }
 
 extension StringIsAlphaNumeric on String {
-  bool get isAlphaNumericChar {
-    // Or with regexp:
-    // return RegExp(r'^[\w\d]$').hasMatch(this);
+  bool get isAlphaNumeric {
     final codeUnit = codeUnitAt(0);
     final isNumber = 48 <= codeUnit && codeUnit <= 57;
     final isUpperCase = 65 <= codeUnit && codeUnit <= 90;
     final isLowerCase = 97 <= codeUnit && codeUnit <= 122;
     return isNumber || isLowerCase || isUpperCase;
+
+    // Or with regexp:
+    // return RegExp(r'^[a-zA-Z0-9]$').hasMatch(this);
+
+    // this wouldn't work due to _: return RegExp(r'^[\w\d]$').hasMatch(this);
   }
 
-  bool caseInsensitiveEquals(String o) => toLowerCase() == o.toLowerCase();
+  String get lower => toLowerCase();
 }
 
 void main() {
-  group('isValidPalindrome', () {
-    test('LC Example 1', () {
-      expect(isValidPalindrome('A man, a plan, a canal: Panama'), true);
-    });
-
-    test('LC Example 2', () {
-      expect(isValidPalindrome('race a car'), false);
-    });
-
-    test('LC Example 3', () {
-      expect(isValidPalindrome(''), true);
-    });
+  test('palindrome', () {
+    expect(isPalindrome('A man, a plan, a canal: Panama'), true);
+    expect(isPalindrome('race a car'), false);
+    expect(isPalindrome(''), true);
+    expect(isPalindrome('.,'), true);
   });
 }

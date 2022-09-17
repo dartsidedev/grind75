@@ -1,10 +1,25 @@
 import 'dart:collection';
 
-import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
-// s consists of parentheses only '()[]{}'.
 bool isValidParentheses(String s) {
+  final iter = s.split('');
+  final stack = <String>[];
+  const opening = ['(', '[', '{'];
+  const m = <String, String>{'(': ')', '{': '}', '[': ']'};
+  for (var c in iter) {
+    if (opening.contains(c)) {
+      stack.add(m[c]!);
+      continue;
+    }
+    if (stack.isEmpty) return false;
+    if (stack.removeLast() != c) return false;
+  }
+  return stack.isEmpty;
+}
+
+// s consists of parentheses only '()[]{}'.
+bool isValidParenthesesFancyDart(String s) {
   final Queue<String> stack = DoubleLinkedQueue();
 
   for (var i = 0; i < s.length; i++) {
@@ -39,39 +54,31 @@ extension QueueStack<E> on Queue<E> {
 
   E pop() => removeLast();
 
-  E? peek() => firstOrNull;
+  E? peek() => length == 0 ? null : last;
 }
 
 void main() {
-  group('isValidParentheses', () {
-    test('LC Example 1', () {
-      expect(isValidParentheses('()'), true);
-    });
+  test('leetcode', () {
+    expect(isValidParentheses('()'), true);
+    expect(isValidParentheses('()[]{}'), true);
+    expect(isValidParentheses('(]'), false);
+  });
 
-    test('LC Example 2', () {
-      expect(isValidParentheses('()[]{}'), true);
-    });
+  test('nested', () {
+    expect(isValidParentheses('()[{()(){}[]}]{}'), true);
+    expect(isValidParentheses('()[{()(){}[]]}]{}'), false);
+  });
 
-    test('LC Example 3', () {
-      expect(isValidParentheses('(]'), false);
-    });
+  test('stack empty check', () {
+    expect(isValidParentheses('()('), false);
+  });
 
-    test('Nested', () {
-      expect(isValidParentheses('()[{()(){}[]}]{}'), true);
-      expect(isValidParentheses('()[{()(){}[]]}]{}'), false);
-    });
+  test('empty input', () {
+    expect(isValidParentheses(''), true);
+  });
 
-    test('Stack empty check', () {
-      expect(isValidParentheses('()('), false);
-    });
-
-    test('Empty input', () {
-      expect(isValidParentheses(''), true);
-    });
-
-    test('One char input', () {
-      expect(isValidParentheses('('), false);
-      expect(isValidParentheses(')'), false);
-    });
+  test('one char input', () {
+    expect(isValidParentheses('('), false);
+    expect(isValidParentheses(')'), false);
   });
 }

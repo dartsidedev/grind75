@@ -10,29 +10,29 @@ import 'package:test/test.dart';
 ///
 /// Return the maximum profit you can achieve from this transaction.
 /// If you cannot achieve any profit, return 0.
-double maxProfit(List<double> prices) {
+int maxProfit(List<int> prices) {
   // According to constraints, prices is never empty
   // if (prices.isEmpty) return 0;
-  var maxProfit = 0.0, minPrice = prices.first;
+  var maxProfit = 0, minPrice = prices.first;
 
-  for (int i = 1; i < prices.length; i++) {
-    final price = prices[i];
+  // or if we are pedantic
+  // for (int i = 1; i < prices.length; i++) {
+  for (final price in prices) {
     minPrice = min(minPrice, price);
-    final profit = price - minPrice;
-    maxProfit = max(maxProfit, profit);
+    maxProfit = max(maxProfit, price - minPrice);
   }
 
-  return maxProfit < 0 ? 0 : maxProfit;
+  return maxProfit;
 }
 
 void main() {
   group('maxProfit', () {
     test('LC Example 1', () {
-      expect(maxProfit([7,1,5,3,6,4]), 5);
+      expect(maxProfit([7, 1, 5, 3, 6, 4]), 5);
     });
 
     test('LC Example 2', () {
-      expect(maxProfit([7,6,4,3,1]), 0);
+      expect(maxProfit([7, 6, 4, 3, 1]), 0);
     });
 
     test('length 1', () {

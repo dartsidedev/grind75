@@ -58,6 +58,7 @@ The `DoubleLinkedQueue` is an implementation of the `Queue` based on a double-li
 It allows **constant time add, remove-at-ends and peek operations**.
 
 ```dart
+
 final doubleLinkedQueue = DoubleLinkedQueue<int>();
 ```
 
@@ -272,7 +273,7 @@ Pop off when closing, and make sure they are matching.
 Don't forget to check at the end if the stack is empty.
 Remember to pop off only if stack is not empty (or use peek).
 
-**Complexity analysis**: **n** is the length of the input string.
+**Complexity analysis**: $n$ is the length of the input string.
 * **Time complexity**: $O(n)$, as you iterate over the whole input string, and potentially adding half of them to a stack. Pushing and popping on a stack can be a $O(1)$ operation if the stack is efficient.
 * **Space complexity**: $O(n)$, we need a stack that might contain $n$ elements.
 
@@ -287,13 +288,21 @@ Remember to pop off only if stack is not empty (or use peek).
 > [Solution](./test/merge_two_sorted_lists_test.dart)
 > [LeetCode](https://leetcode.com/problems/merge-two-sorted-lists/)
 
-Trick: pre-head pointer significantly simplifies the algorithm.
+_Trick: pre-head pointer significantly simplifies the iterative algorithm._
+
 While both lists are not empty, pick one off the lists and add to the results.
 Move pointer.
 Do not forget to add the remaining items of the longer list to the list.
 Return the pre-head's next as result.
 
-Consider empty nodes.
+Consider empty nodes. Do not assume the two lists are of equal length.
+
+**Complexity analysis**: $n$ and $m$ are the lengths of the input linked lists.
+* **Time complexity**: $O(n+m)$ (linear with total length), because we simply iterate over both lists and picking the correct.
+* **Space complexity**: $O(1)$, only need a couple of variables, constant space, and the returned list consists of nodes already created before the solution algorithm ran.
+
+Alternative solutions:
+* Recursive solution. Basically the same, just with different space complexity due to the stack.
 </details>
 
 
@@ -304,21 +313,24 @@ Consider empty nodes.
 > [Solution](./test/best_time_to_buy_and_sell_stock_test.dart)
 > [LeetCode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 
+_Clarify at the interview_:
+* What is the input, `int` vs `num` vs `double`? In this case, we work with `int`.
+* Can it be negative/positive? It doesn't affect the algorithm.
+* What should the solution return if it is impossible to achieve any profit? Return 0 if no profit possible.
+
 Keep track of min price "so far".
 Current profit is price minus the min price so far.
 Update max profit if current profit greater.
 Handle negative profit edge case (must return 0).
 
-Complexity.
-n is the length of the list.
-Time O(n), as you iterate over the whole list in a single pass.
-Space O(1) as you don't need supporting data structures, only two variables.
+**Complexity analysis** ($n$ is the length of the list):
+* **Time complexity**: $O(n)$, as you iterate over the whole list in a single pass.
+* **Space complexity**: $O(1)$, because you only need two variables holding integers.
 
 Alternative solutions:
-
-* brute force: double loop, calculate profit for each possible pair. TC: O(n^2), SC: O(1).
-
-Clarify: int vs num vs double.
+* brute force: double loop, calculate profit for each possible pair.
+  * **Time complexity**: $O(n^2)$, for each number, sweep the rest of the list.
+  * **Space complexity**: $O(1)$.
 </details>
 
 
@@ -329,14 +341,20 @@ Clarify: int vs num vs double.
 > [Solution](./test/valid_palindrome_test.dart)
 > [LeetCode](https://leetcode.com/problems/valid-palindrome/)
 
-Obvious solution: filter invalid characters, keep only alphanumeric characters and convert to lowercase
-(`split`+`where`+`map`+`join`).
-Then, check if palindrome: either two pointers, or reverse the string and compare against filtered values.
+Start with two pointers at each end of the string.
+If a letter is not alphanumeric, move pointer to next alphanumeric.
+Whenever the two pointers contain alphanumeric chars, compare.
+If the values for the two pointers don't match, return "not a palindrome".
 
-Improvement: Start with two pointers, if a letter is not alphanumeric, move pointer to next alphanumeric.
-Whenever the two pointers contain alphanumeric chars, compare. If the values for the two pointers don't match, return "
-not a palindrome".
+**Complexity analysis** ($n$ is the length of the string):
+* **Time complexity**: $O(n)$, as we traverse over each character at most once.
+* **Space complexity**: $O(1)$, because you only need two variables holding integers.
 
+Alternative solutions:
+
+* filter and transform invalid characters (keep only alphanumeric characters and convert to lowercase)
+  (`split`+`where`+`map`+`join`).
+  Then, check if palindrome: either two pointers, or reverse the string and compare against filtered values. TODO: I could actually implement this one day.
 </details>
 
 <details>
@@ -345,13 +363,18 @@ not a palindrome".
 > [Solution](./test/invert_binary_tree_test.dart)
 > [LeetCode](https://leetcode.com/problems/invert-binary-tree/)
 
-Invert tree recursively: if null, return.
-Swap left and right children, then invert left and right subtrees.
-Return node.
+> The inverse of a tree with root $R$, and subtrees $r$ and $l$, is a tree with root $R$, whose
+> right subtree is the inverse of $l$, and whose left subtree is the inverse of $r$.
+
+Invert tree recursively. Swap children, then invert left and right subtrees. Handle null case.
 
 Both pre-order and post-order traversal give the right answer.
 
-TODO: Solve without recursion.
+**Complexity analysis** ($n$ is the number of the nodes in the tree):
+* **Time complexity**: $O(n)$, we visit each node once.
+* **Space complexity**: $O(n)$, the recursion stack will be as high as the tree, which in the worst case is equal to the number of nodes.
+
+TODO: Solve iteratively, both post and preorder.
 </details>
 
 
@@ -798,8 +821,10 @@ map of nodes to heights.
 > [LeetCode](https://leetcode.com/problems/countings-bits/)
 
 Solutions:
+
 * number of bits, n times...
 * TODO: understand and solve all the other solutions
+
 </details>
 
 
@@ -811,9 +836,11 @@ Solutions:
 > [LeetCode](https://leetcode.com/problems/same-tree/)
 
 Solutions:
+
 * override ==
 * recursive
 * iterative (use stack)
+
 </details>
 
 
@@ -825,7 +852,9 @@ Solutions:
 > [LeetCode](https://leetcode.com/problems/subtree-of-another-tree/)
 
 Solutions:
+
 * See same tree for comparing two trees. Traverse the tree and check each node.
+
 </details>
 
 
@@ -848,7 +877,8 @@ According to [Numbers in Dart](https://dart.dev/guides/language/numbers):
 > **native** (most often, a 64-bit mobile or desktop processor)
 > and **web** (JavaScript as the primary execution engine).
 
-Keep in mind that on JavaScript, that "JavaScript converts numbers into 32 bits before the implementation of bitwise operators"
+Keep in mind that on JavaScript, that "JavaScript converts numbers into 32 bits before the implementation of bitwise
+operators"
 which can lead to [surprising behavior](https://stackoverflow.com/a/73471501/4541492).
 
 </details>
@@ -865,7 +895,8 @@ If it's an operation, perform operation on top 2 items in the stack, and push re
 
 **Complexity analysis**.
 $n$ is the length of the input list.
-**Time complexity**: $O(n)$, as you iterate over the whole list in a single pass. Pushing to and popping off the stack is $O(1)$.
+**Time complexity**: $O(n)$, as you iterate over the whole list in a single pass. Pushing to and popping off the stack
+is $O(1)$.
 **Space complexity**: $O(n)$, as the supporting stack can never be more than half the length of the input.
 
 </details>
@@ -876,7 +907,8 @@ $n$ is the length of the input list.
 > [Solution](./test/sort_colors_test.dart)
 > [LeetCode](https://leetcode.com/problems/sort-colors/)
 
-If we could use Dart's built-in sorting algorithm, it's a one-liner: dual pivot quicksort $O(n \log n)$ average case, $O(n^2)$ worst case.
+If we could use Dart's built-in sorting algorithm, it's a one-liner: dual pivot quicksort $O(n \log n)$ average case,
+$O(n^2)$ worst case.
 
 We know that the possible values can only be 0, 1, 2, therefore,
 we can use [counting sort](https://en.wikipedia.org/wiki/Counting_sort).

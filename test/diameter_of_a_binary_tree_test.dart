@@ -8,7 +8,7 @@ int diameter(Node root) {
   final stack2 = DoubleLinkedQueue<Node>();
 
   var node = root;
-  while(stack1.isNotEmpty) {
+  while (stack1.isNotEmpty) {
     node = stack1.pop();
     if (node.left != null) stack1.push(node.left!);
     if (node.right != null) stack1.push(node.right!);
@@ -18,7 +18,7 @@ int diameter(Node root) {
   var maxDiameter = 0;
   final heights = <Node, int>{};
 
-  int getHeight(Node? node) => node == null ?  0 : heights[node] ?? 1;
+  int getHeight(Node? node) => node == null ? 0 : heights[node] ?? 1;
 
   while (stack2.isNotEmpty) {
     node = stack2.pop();
@@ -33,6 +33,7 @@ int diameter(Node root) {
 
 extension MinimalistStack<E> on Queue<E> {
   void push(E value) => addLast(value);
+
   E pop() => removeLast();
 }
 

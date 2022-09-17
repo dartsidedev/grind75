@@ -1,66 +1,58 @@
 import 'package:test/test.dart';
 
-Node? invertTree(Node? node) {
+// Recursive solution, preorder traversal (postorder would also work).
+TreeNode? invertTreeR(TreeNode? node) {
   if (node == null) return null;
-
   node.swapChildren();
-
-  invertTree(node.left);
-  invertTree(node.right);
-
+  invertTreeR(node.left);
+  invertTreeR(node.right);
   return node;
 }
 
-class Node {
-  Node(this.value, [this.left, this.right]);
-
-  int value;
-  Node? left;
-  Node? right;
-
+extension on TreeNode {
   void swapChildren() {
     final t = left;
     left = right;
     right = t;
   }
+}
+
+class TreeNode {
+  TreeNode(this.value, [this.left, this.right]);
+
+  int value;
+  TreeNode? left;
+  TreeNode? right;
 
   // Used only for testing
   @override
   bool operator ==(Object o) =>
-      o is Node && o.value == value && o.left == left && o.right == right;
+      o is TreeNode && o.value == value && o.left == left && o.right == right;
 
   @override
   int get hashCode => Object.hash(value, left, right);
 }
 
 void main() {
-  group('invertTree', () {
-    test('LC Example 1', () {
-      expect(
-        invertTree(
-          Node(
-            4,
-            Node(2, Node(1), Node(3)),
-            Node(7, Node(6), Node(9)),
-          ),
-        ),
-        Node(
+  test('LC Example 1', () {
+    expect(
+      invertTreeR(
+        TreeNode(
           4,
-          Node(7, Node(9), Node(6)),
-          Node(2, Node(3), Node(1)),
+          TreeNode(2, TreeNode(1), TreeNode(3)),
+          TreeNode(7, TreeNode(6), TreeNode(9)),
         ),
-      );
-    });
-
-    test('LC Example 2', () {
-      expect(
-        invertTree(Node(2, Node(1), Node(3))),
-        Node(2, Node(3), Node(1)),
-      );
-    });
-
-    test('LC Example 3', () {
-      expect(invertTree(null), null);
-    });
+      ),
+      TreeNode(
+        4,
+        TreeNode(7, TreeNode(9), TreeNode(6)),
+        TreeNode(2, TreeNode(3), TreeNode(1)),
+      ),
+    );
+    expect(
+      invertTreeR(TreeNode(2, TreeNode(1), TreeNode(3))),
+      TreeNode(2, TreeNode(3), TreeNode(1)),
+    );
+    expect(invertTreeR(null), null);
   });
 }

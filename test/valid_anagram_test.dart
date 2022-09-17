@@ -11,11 +11,11 @@ import 'package:test/test.dart';
 ///
 /// [s1] and [s2] consist of lowercase English letters.
 bool validAnagram(String s1, String s2) {
-  return s1.length == s2.length && Frequency(s1) == Frequency(s2);
+  return s1.length == s2.length && Counter(s1) == Counter(s2);
 }
 
-class Frequency {
-  Frequency(String string) : _values = _valuesFromString(string);
+class Counter {
+  Counter(String string) : _values = _valuesFromString(string);
 
   final List<int> _values;
 
@@ -26,8 +26,8 @@ class Frequency {
   }
 
   @override
-  bool operator ==(Object o) =>
-      o is Frequency && const ListEquality().equals(_values, o._values);
+  bool operator ==(Object? o) =>
+      o is Counter && const ListEquality().equals(_values, o._values);
 
   @override
   int get hashCode => _values.hashCode;
@@ -38,22 +38,17 @@ extension CharToIndex on String {
 }
 
 void main() {
-  group('validAnagram', () {
-    test('LC Example 1', () {
-      expect(validAnagram('anagram', 'nagaram'), true);
-    });
+  test('leetcode', () {
+    expect(validAnagram('anagram', 'nagaram'), true);
+    expect(validAnagram('rat', 'car'), false);
+  });
 
-    test('LC Example 1', () {
-      expect(validAnagram('rat', 'car'), false);
-    });
-
-    test('MOARRR examples', () {
-      expect(validAnagram('aaab', 'abba'), false);
-      expect(validAnagram('aaabb', 'ababa'), true);
-      expect(validAnagram('aaab', 'abba'), false);
-      expect(validAnagram('', ''), true);
-      expect(validAnagram('a', 'b'), false);
-      expect(validAnagram('a', 'a'), true);
-    });
+  test('more examples', () {
+    expect(validAnagram('aaab', 'abba'), false);
+    expect(validAnagram('aaabb', 'ababa'), true);
+    expect(validAnagram('aaab', 'abba'), false);
+    expect(validAnagram('', ''), true);
+    expect(validAnagram('a', 'b'), false);
+    expect(validAnagram('a', 'a'), true);
   });
 }
