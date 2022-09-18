@@ -18,6 +18,12 @@ bool isPalindrome(String s) {
   return true;
 }
 
+bool isPalindrome2(String s) {
+  final filtered =
+      s.split('').where((c) => c.isAlphaNumeric).map((c) => c.lower).join('');
+  return filtered == filtered.split('').reversed.join('');
+}
+
 extension StringIsAlphaNumeric on String {
   bool get isAlphaNumeric {
     final codeUnit = codeUnitAt(0);

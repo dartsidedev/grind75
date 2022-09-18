@@ -167,9 +167,11 @@ Must know it well!
 
 ```dart
 import 'dart:math';
+
 final maxValue = max(a, b);
 // or
 import 'dart:math' as math;
+
 final maxValue = math.max(a, b);
 ```
 
@@ -190,6 +192,31 @@ bool match(List<int> a, List<int> b) => const ListEquality().equals(a, b);
 external bool identical(Object? a, Object? b);
 ```
 
+
+```dart
+// A simplified (int only) version of
+// the ListEquality.equals from package:collection
+bool listEquals(List<int>? list1, List<int>? list2) {
+  // Are they identical?
+  if (identical(list1, list2)) return true;
+  
+  // Consider nulls
+  if (list1 == null || list2 == null) return false;
+  
+  // Check lengths and return early if don't match
+  var length = list1.length;
+  if (length != list2.length) return false;
+  
+  // Check every item, if they don't match return
+  for (var i = 0; i < length; i++) {
+    if (list1[i] != list2[i]) return false;
+  }
+  
+  // Yay, they are equal!
+  return true;
+}
+```
+
 ## Disclaimers
 
 ### Coding conventions
@@ -199,8 +226,10 @@ or rules that are in most popular linting libraries enabled.
 
 You can find below the list of rules that I do not follow with a reason as to why that is.
 
-* `curly_braces_in_flow_control_structures`: I don't want to "spend" three lines just to write a simple `while`, `if`, `for`.
-* `avoid_multiple_declarations_per_line`: sometimes two declarations just belong together, and at interviews, you really don't have enough time to declare everything in a new line.
+* `curly_braces_in_flow_control_structures`: I don't want to "spend" three lines just to write a simple `while`, `if`
+  , `for`.
+* `avoid_multiple_declarations_per_line`: sometimes two declarations just belong together, and at interviews, you really
+  don't have enough time to declare everything in a new line.
 
 ### Test quality
 
@@ -244,18 +273,24 @@ If it does, return the indices.
 If it doesn't, add number to the map.
 
 **Complexity analysis**: $n$ is the number of elements in the list.
+
 * **Time complexity**: $O(n)$, as you might iterate over the whole list.
 * **Space complexity**: $O(n)$, as you might need to store almost all elements and their indices in the map.
 
 Other solutions:
 
 * **Brute force**: double loop, return when the two numbers add up to the target.
-  * **Time complexity**: $O(n^2)$, for each of $n$ elements, we try to find its complement by looping through the rest of the list. 
-  * **Space complexity**: $O(1)$, no extra space that depends on the input size is necessary.
-* [Sort list](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted) first, then on a sorted list, find values with two pointers (from start and end).
-  * **Time complexity**: $O(n \log n)$, because sort $O(n \log n)$ + two pointers $O(n)$.
-  * **Space complexity**: $O(n)$, sort and two-pointers would be possible with $O(1)$, but we need to store original indices $O(n)$.
-  * This solution, as the list is not already sorted and we need to return the original indices, is fairly complicated, and doesn't perform too well (neither in space nor time complexity).
+    * **Time complexity**: $O(n^2)$, for each of $n$ elements, we try to find its complement by looping through the rest
+      of the list.
+    * **Space complexity**: $O(1)$, no extra space that depends on the input size is necessary.
+* [Sort list](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted) first, then on a sorted list, find values
+  with two pointers (from start and end).
+    * **Time complexity**: $O(n \log n)$, because sort $O(n \log n)$ + two pointers $O(n)$.
+    * **Space complexity**: $O(n)$, sort and two-pointers would be possible with $O(1)$, but we need to store original
+      indices $O(n)$.
+    * This solution, as the list is not already sorted and we need to return the original indices, is fairly
+      complicated, and doesn't perform too well (neither in space nor time complexity).
+
 </details>
 
 
@@ -274,10 +309,13 @@ Don't forget to check at the end if the stack is empty.
 Remember to pop off only if stack is not empty (or use peek).
 
 **Complexity analysis**: $n$ is the length of the input string.
-* **Time complexity**: $O(n)$, as you iterate over the whole input string, and potentially adding half of them to a stack. Pushing and popping on a stack can be a $O(1)$ operation if the stack is efficient.
+
+* **Time complexity**: $O(n)$, as you iterate over the whole input string, and potentially adding half of them to a
+  stack. Pushing and popping on a stack can be a $O(1)$ operation if the stack is efficient.
 * **Space complexity**: $O(n)$, we need a stack that might contain $n$ elements.
 
-[Solution variant](https://leetcode.com/problems/valid-parentheses/discuss/500491/Rust-0ms), you could immediately push the closing parenthesis onto the stack, it actually ends up looking pretty nice.
+[Solution variant](https://leetcode.com/problems/valid-parentheses/discuss/500491/Rust-0ms), you could immediately push
+the closing parenthesis onto the stack, it actually ends up looking pretty nice.
 </details>
 
 
@@ -298,11 +336,16 @@ Return the pre-head's next as result.
 Consider empty nodes. Do not assume the two lists are of equal length.
 
 **Complexity analysis**, $n$ and $m$ are the lengths of the input linked lists:
-* **Time complexity**: $O(n+m)$ (linear with total length), because we simply iterate over both lists and picking the correct.
-* **Space complexity**: $O(1)$, only need a couple of variables, constant space, and the returned list consists of nodes already created before the solution algorithm ran.
+
+* **Time complexity**: $O(n+m)$ (linear with total length), because we simply iterate over both lists and picking the
+  correct.
+* **Space complexity**: $O(1)$, only need a couple of variables, constant space, and the returned list consists of nodes
+  already created before the solution algorithm ran.
 
 Alternative solutions:
+
 * Recursive solution. Basically the same, just with different space complexity due to the stack.
+
 </details>
 
 
@@ -314,6 +357,7 @@ Alternative solutions:
 > [LeetCode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 
 _Clarify at the interview_:
+
 * What is the input, `int` vs `num` vs `double`? In this case, we work with `int`.
 * Can it be negative/positive? It doesn't affect the algorithm.
 * What should the solution return if it is impossible to achieve any profit? Return 0 if no profit possible.
@@ -324,13 +368,16 @@ Update max profit if current profit greater.
 Handle negative profit edge case (must return 0).
 
 **Complexity analysis**, $n$ is the length of the list:
+
 * **Time complexity**: $O(n)$, as you iterate over the whole list in a single pass.
 * **Space complexity**: $O(1)$, because you only need two variables holding integers.
 
 Alternative solutions:
+
 * brute force: double loop, calculate profit for each possible pair.
-  * **Time complexity**: $O(n^2)$, for each number, sweep the rest of the list.
-  * **Space complexity**: $O(1)$.
+    * **Time complexity**: $O(n^2)$, for each number, sweep the rest of the list.
+    * **Space complexity**: $O(1)$.
+
 </details>
 
 
@@ -343,18 +390,32 @@ Alternative solutions:
 
 Start with two pointers at each end of the string.
 If a letter is not alphanumeric, move pointer to next alphanumeric.
+Make sure that the left pointer is always to the left of the right pointer.
 Whenever the two pointers contain alphanumeric chars, compare.
 If the values for the two pointers don't match, return "not a palindrome".
 
 **Complexity analysis**, $n$ is the length of the string:
+
 * **Time complexity**: $O(n)$, as we traverse over each character at most once.
 * **Space complexity**: $O(1)$, because you only need two variables holding integers.
 
 Alternative solutions:
 
-* filter and transform invalid characters (keep only alphanumeric characters and convert to lowercase)
-  (`split`+`where`+`map`+`join`).
-  Then, check if palindrome: either two pointers, or reverse the string and compare against filtered values. TODO: I could actually implement this one day.
+**Functional approach**
+
+1. Filter invalid characters and transform to lowercase (`split`+`where`+`map`+`join`).
+2. Check if palindrome
+    * two pointers (now significantly easier to implement), or
+    * reverse the string and compare against the original.
+
+**Complexity analysis**, $n$ is the length of the string:
+
+* **Time complexity**: $O(n)$, as we iterate over the string: filter out non-alphanumeric values, map to lowercase,
+  create string, create reversed, compare. All of these steps run in linear time.
+* **Space complexity**: $O(n)$, for the supporting data structures: split list, joined string, reversed joined.
+
+The functional approach, compared to the optimal iterative approach, has worse space complexity ($O(n)$ vs. $O(1)$).
+In practice, it has both a worse memory usage and slower runtime.
 </details>
 
 <details>
@@ -371,8 +432,10 @@ Invert tree recursively. Swap children, then invert left and right subtrees. Han
 Both pre-order and post-order traversal give the right answer.
 
 **Complexity analysis**, $n$ is the number of the nodes in the tree:
+
 * **Time complexity**: $O(n)$, we visit each node once.
-* **Space complexity**: $O(n)$, the recursion stack will be as high as the tree, which in the worst case is equal to the number of nodes.
+* **Space complexity**: $O(n)$, the recursion stack will be as high as the tree, which in the worst case is equal to the
+  number of nodes.
 
 TODO: Solve iteratively, both post and preorder.
 </details>
@@ -385,18 +448,36 @@ TODO: Solve iteratively, both post and preorder.
 > [Solution](./test/valid_anagram_test.dart)
 > [LeetCode](https://leetcode.com/problems/valid-anagram/)
 
-Return early if lengths don't match. Create frequency counter. Check if frequencies match.
+> An Anagram is a word or phrase formed by rearranging the letters of a
+> different word or phrase, typically using all the original letters exactly once.
 
-Complexity.
-n is the length of the strings.
-Time O(n) as we need to iterate over the both strings entirely to create the frequency table.
-Space O(1) size stays constant no matter how large n is (even for unicode).
+Two words are anagram if they both contain the same letters, the same number of times.
 
-Worth creating a helper class `Frequency` that can be created from a string and then compared against another freq.
+Return early if lengths don't match.
+Create counter (list or map).
+Check if counts match.
 
-Follow up: unicode? Change how frequencies are stored from fixed length list to hash map.
-To fit all potential unicode characters in a list, the list would have to contain 1M+ elements.
+**Complexity analysis**, where $n$ is the length of the strings:
+
+* We assume $n$ is the length of both strings. If the lengths don't match, we can return immediately.
+* **Time complexity**: $O(n)$ as we need to iterate over the strings to create the frequency/counter table.
+* **Space complexity**: $O(1)$, the counter's space requirements stay constant no matter how large $n$ is: The counter
+  will be a fixed length list with length 26.
+  The same is true even for unicode, just the map will be much bigger.
+
+Consider creating a helper class `Counter` that can be created
+from a string and then compared against another counter.
+
+The `Counter` should wrap a fixed-length list for ASCII-only.
+
+If you are not allowed to use `package:collection`'s `ListEquality`, be prepared to implement it.
+
+Follow up: **unicode**?
+In Version 14.0 of the Unicode Standard, there are **144K characters**.
+To fit all possible unicode characters in a list, the list would have to contain 1M+ elements
+(unicode is evolving, 1M+ is the hypothetical max).
 That's wasteful if the strings are short (and anything less than a million characters counts as short in this case).
+**Change from fixed length list to hash map for storing the counters.**
 </details>
 
 <details>

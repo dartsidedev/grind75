@@ -1,17 +1,17 @@
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 
-/// Given two strings [s1] and [s2],
-/// return true if [s2] is an anagram of [s1],
+/// Given two strings [s] and [t],
+/// return true if [t] is an anagram of [s],
 /// and false otherwise.
 ///
 /// An Anagram is a word or phrase formed by rearranging the letters of a
 /// different word or phrase, typically using all the original letters
 /// exactly once.
 ///
-/// [s1] and [s2] consist of lowercase English letters.
-bool validAnagram(String s1, String s2) {
-  return s1.length == s2.length && Counter(s1) == Counter(s2);
+/// [s] and [t] consist of lowercase English letters.
+bool validAnagram(String s, String t) {
+  return s.length == t.length && Counter(s) == Counter(t);
 }
 
 class Counter {
