@@ -17,90 +17,69 @@ import 'package:test/test.dart';
 /// Replace the color of all of the aforementioned pixels with color.
 ///
 /// Return the modified image after performing the flood fill.
-List<List<int>> floodFill(
-  List<List<int>> values,
-  Pixel pixel,
-  int newColor,
-) {
-  final image = Image(values);
+List<List<int>> floodFill(List<List<int>> img, int sy, int sx, int color) {
+  final s = Pixel(sx, sy);
+  final oldColor = img.getColor(s);
+  if (oldColor == color) return img;
 
-  final initial = image.getColor(pixel);
-  if (initial == newColor) return values;
+  img.setColor(s, color);
+  final queue = ListQueue<Pixel>()..addLast(s);
 
-  image.setColor(pixel, newColor);
-  final q = DoubleLinkedQueue<Pixel>()..enqueue(pixel);
-  while (q.isNotEmpty) {
-    for (final p in image.getNeighborPixelsWithColor(q.dequeue(), initial)) {
-      image.setColor(p, newColor);
-      q.enqueue(p);
+  while (queue.isNotEmpty) {
+    final current = queue.removeFirst();
+    final neighbors = img.getNeighbors(current);
+    for (final neighbor in neighbors) {
+      final neighborColor = img.getColor(neighbor);
+      if (neighborColor == oldColor) {
+        img.setColor(neighbor, color);
+        queue.add(neighbor);
+      }
     }
   }
 
-  return values;
+  return img;
 }
 
-extension MinimalistQueue<T> on Queue<T> {
-  void enqueue(T value) => addLast(value);
-
-  T dequeue() => removeFirst();
-}
-
-class Image {
-  Image(this._values);
-
-  final List<List<int>> _values;
-
-  int getColor(Pixel pixel) {
-    return _values[pixel.y][pixel.x];
-  }
-
-  void setColor(Pixel pixel, int newColor) =>
-      _values[pixel.y][pixel.x] = newColor;
-
-  // Get the neighbors of [pixel] with [color].
-  Iterable<Pixel> getNeighborPixelsWithColor(Pixel pixel, int color) {
-    return getNeighbors(pixel).where((p) => getColor(p) == color);
-  }
-
-  Iterable<Pixel> getNeighbors(Pixel pixel) {
-    final x = pixel.x, y = pixel.y;
-    return [
-      Pixel(x + 1, y),
-      Pixel(x, y + 1),
-      Pixel(x - 1, y),
-      Pixel(x, y - 1),
-    ].where(isValid);
-  }
-
-  int get length => _values.length;
-
-  List<int> operator [](int i) => _values[i];
-
-  bool isValid(Pixel pixel) {
-    final yMax = length, xMax = this[0].length, x = pixel.x, y = pixel.y;
-    return 0 <= x && x < xMax && 0 <= y && y < yMax;
-  }
-
-  @override
-  String toString() => '$Image($_values)';
-}
 
 class Pixel {
-  const Pixel(this.x, this.y);
-
+  Pixel(this.x, this.y);
+  
   final int x;
   final int y;
-
+  
   @override
-  String toString() => '$Pixel($x, $y)';
+  bool operator==(Object o) => o is Pixel && o.x == x && o.y == y;
+  
+  @override
+  int get hashCode => Object.hash(x, y);
 }
 
+extension on List<List<int>> {
+  int getColor(Pixel p) => this[p.y][p.x];
+  
+  void setColor(Pixel p, int c) => this[p.y][p.x] = c;
+  
+  Iterable<Pixel> getNeighbors(Pixel p) {
+    return [
+      Pixel(p.x + 1, p.y),
+      Pixel(p.x - 1, p.y),
+      Pixel(p.x, p.y + 1),
+      Pixel(p.x, p.y - 1),
+    ].where(isValidPixel);
+  }
+  
+  bool isValidPixel(Pixel p) {
+    return 0 <= p.x && p.x < this[0].length && 0 <= p.y && p.y < length;
+  }
+}
+
+
 List<List<int>> floodFillRecursive(
-    List<List<int>> image,
-    int sx,
-    int sy,
-    int newColor,
-    ) {
+  List<List<int>> img,
+  int sx,
+  int sy,
+  int newColor,
+) {
   final xMax = image[0].length - 1, yMax = image.length - 1;
 
   final initialColor = image[sy][sx];
@@ -121,6 +100,30 @@ List<List<int>> floodFillRecursive(
 
   return image;
 }
+
+/*
+    final xMax = img[0].length, yMax = img.length;
+
+    final initialColor = img[sy][sx];
+    if (initialColor == color) return img;
+
+    void dfs(int x, int y) {
+      if (x < 0 || xMax <= x) return;
+      if (y < 0 || yMax <= y) return;
+      if (img[y][x] != initialColor) return;
+
+      img[y][x] = color;
+      
+      dfs(x + 1, y);
+      dfs(x - 1, y);
+      dfs(x, y + 1);
+      dfs(x, y - 1);
+    }
+
+    dfs(sx, sy);
+
+    return img;
+*/
 
 void main() {
   group('floodFill', () {
