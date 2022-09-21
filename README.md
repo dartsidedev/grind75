@@ -500,10 +500,10 @@ Pay attention to empty list, first element, last element. Practice templates.
 
 Depth-first search, either iteratively or recursively.
 
-Complexity.
-n is the number of pixels in the image.
-Time Complexity O(n) as we might process every pixel.
-Space Complexity O(n) for the stack (either call stack for recursive or queue/stack for the iterative solution).
+**Complexity analysis**, where $n$ is the number of rows and $m$ in the number of columns in the image, and the total number of pixels is $p = m n$.
+
+* **Time complexity**: $O(n m) = O(p)$ as we might process every pixel.
+* **Space complexity**: $O(n m) = O(p)$ for the stack (either the call stack in the recursive solution or the queue/stack for the iterative solution).
 </details>
 
 
