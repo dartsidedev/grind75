@@ -17,7 +17,7 @@ int binarySearch(List<int> values, int target) {
     if (middleValue < target) {
       left = middle + 1;
     } else {
-      right = middle -1;
+      right = middle;
     }
   }
   return -1;
