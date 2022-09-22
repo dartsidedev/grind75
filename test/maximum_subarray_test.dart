@@ -19,10 +19,46 @@ import 'package:test/test.dart';
 /// Follow up: If you have figured out the O(n) solution, try coding another
 /// solution using the divide and conquer approach, which is more subtle.
 int maximumSubarray(List<int> values) {
-  var max = values.first, current = max;
-  for (final v in values.skip(1)) {
-    current = math.max(current + v, v);
+  // // This is shorter, but more confusing as to what is really happenig.
+  // var max = values.first, current = max;
+  // for (final v in values.skip(1)) {
+  //   current = math.max(current + v, v);
+  //   max = math.max(current, max);
+  // }
+  // return max;
+  
+  var max = values[0], current = values[0], value = -1;
+  for (var i = 1; i < values.length; i++) {
+    value = values[i];
+    current = current.isNegative ? value : current + value;
     max = math.max(current, max);
+  }
+  return max;
+}
+
+// Other solutions:
+
+// Time Limit Exceeded on LeetCode
+int maximumSubarrayN2(List<int> values) {
+  var max = values.first;
+  for (var i = 0; i < values.length; i++) {
+    for (var j = i, current = 0; j < values.length; j++) {
+      current += values[j];
+      max = math.max(max, current);
+    }
+  }
+  return max;
+}
+
+// Time Limit Exceeded on LeetCode
+int maximumSubarrayN3(List<int> values) {
+  var max = values.first;
+  for (var i = 0; i < values.length; i++) {
+    for (var j = i; j < values.length; j++) {
+      var current = 0;
+      for (var k = i; k <= j; k++) current += values[k];
+      max = math.max(max, current);
+    }
   }
   return max;
 }
@@ -46,32 +82,4 @@ void main() {
       expect(maximumSubarray([-1, -4, -3, -6, -9, -2, 0]), 0);
     });
   });
-}
-
-// Other solutions:
-
-int maximumSubarrayN2(List<int> values) {
-  // n^2
-  var max = values.first;
-  for (var i = 0; i < values.length; i++) {
-    var current = 0;
-    for (var j = i; j < values.length; j++) {
-      current += values[j];
-      max = math.max(max, current);
-    }
-  }
-  return max;
-}
-
-int maximumSubarrayN3(List<int> values) {
-  // n^3
-  var max = values.first;
-  for (var i = 0; i < values.length; i++) {
-    for (var j = i; j < values.length; j++) {
-      var current = 0;
-      for (var k = i; k <= j; k++) current += values[k];
-      max = math.max(max, current);
-    }
-  }
-  return max;
 }
