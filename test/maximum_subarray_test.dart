@@ -2,41 +2,24 @@ import 'dart:math' as math;
 
 import 'package:test/test.dart';
 
-/****** See all solutions at the bottom of the file ******/
-
 /// Given an integer array [values], find the contiguous subarray
 /// (containing at least one number) which has the largest sum
 /// and return its sum.
 ///
 /// A subarray is a contiguous part of an array.
 ///
-/// Constraints:
-///
-/// 1 <= nums.length <= 105
-/// -104 <= nums[i] <= 104
-///
-///
-/// Follow up: If you have figured out the O(n) solution, try coding another
-/// solution using the divide and conquer approach, which is more subtle.
+/// 1 <= values.length <= 105
+/// -104 <= values[i] <= 104
 int maximumSubarray(List<int> values) {
-  // // This is shorter, but more confusing as to what is really happenig.
-  // var max = values.first, current = max;
-  // for (final v in values.skip(1)) {
-  //   current = math.max(current + v, v);
-  //   max = math.max(current, max);
-  // }
-  // return max;
-  
-  var max = values[0], current = values[0], value = -1;
-  for (var i = 1; i < values.length; i++) {
-    value = values[i];
+  var max = values.first, current = max;
+  for (final value in values.skip(1)) {
+    /* This is shorter, but more confusing */
+    // current = math.max(current + v, v);
     current = current.isNegative ? value : current + value;
     max = math.max(current, max);
   }
   return max;
 }
-
-// Other solutions:
 
 // Time Limit Exceeded on LeetCode
 int maximumSubarrayN2(List<int> values) {

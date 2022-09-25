@@ -514,14 +514,40 @@ Depth-first search, either iteratively or recursively.
 > [Solution](./test/maximum_subarray_test.dart)
 > [LeetCode](https://leetcode.com/problems/maximum-subarray/)
 
+Iterate over the list. Keep track of the "current" maximum sum, and the maximum sum "so far".
+
+When the current single item is better than the current sum plus the current single item,
+reset the current max sum to the current item only. If it isn't better, add to the sum.
+
+This basically means that if the current sum is negative, you stop using the past values.
+```dart
+current = math.max(current + v, v);
+// is the same as:
+current = current.isNegative ? value : current + value;
+```
+
+Don't forget to update the maximum value "so far" when needed.
+
+PS: This is Kadane's algorithm.
+
 **Complexity analysis**, where $n$ is the length of the list.
 
-* Time complexity C O(n^3). Three loops: two for moving the indices, one for calculating the sum
-* TC O(n^2). One for moving the start index, the other one for the end index and continuously updating the sum in the
-  line. Biggest sum wins in the end.
-* TC O(n). Kadane (greedy?). Iterate over items. Keep track of max and "current max". When single item is better than
-  the single item + previous, use only single item. No indices needed.
-* TC O(n log n), SC O(log n). TODO: Divide and Conquer
+* **Time complexity**: $O(n)$ as we need to iterate over all items once.
+* **Space complexity**: $O(1)$ as we only need to use two variables, one for the "current" max and the other for the max "so far". This space doesn't depend on $n$.
+
+Alternative solutions:
+
+* **Brute force**: Three loops. Two for moving `start` and `end` indices, a third for calculating the sum.
+  * **Time complexity**: $O(n^3)$ for the three nested loops.
+  * **Space complexity**: $O(1)$.
+* **Optimized brute force**: One loop for moving the `start` index. The second loop moves the `end` index while simultaneously updating the `currentMax` value. Compare against `max`.
+  * **Time complexity**: $O(n^2)$ for the two nested loops. The improvement over the $O(n^3$ solution comes from the fact that we recognized that when we add one more item to the sub-list, we don't need to recalculate the current sum completely: $ \sum_{k = 0}^{n + 1} a_k = a_{n + 1} \sum_{k = 0}^{n} a_k $.
+  * **Space complexity**: $O(1)$.
+* **Divide and Conquer**: **TODO.**
+  * **Time complexity**: $O(n \log n)$.
+  * **Space complexity**: $O(\log n)$.
+
+You can find out more about this issue on [Wikipedia - Maximum Subarray Problem](https://en.wikipedia.org/wiki/Maximum_subarray_problem).
 </details>
 
 
