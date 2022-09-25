@@ -556,12 +556,36 @@ You can find out more about this issue on [Wikipedia - Maximum Subarray Problem]
 <details>
 <summary><b>Lowest Common Ancestor of a Binary Search Tree</b> 🏷 <i>binary search tree</i></summary>
 
+🐌 Can't submit solutions with Dart on LeetCode yet for this problem.
+
 > [Solution](./test/lowest_common_ancestor_of_a_binary_search_tree_test.dart)
 > [LeetCode](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
 
-Solution. If both input values are smaller than current, go to the left, if both bigger, go to the right.
-If one is smaller, the other one is bigger, it's an LCA.
-If current value matches, it's an LCA.  (the two LCA conditions can be "fused" into one, if you really want to)
+> The lowest common ancestor is defined between two nodes $p$ and $q$ as the lowest node in $T$ tree that has both $p$ and $q$ as descendants (where we allow a node to be a descendant of itself).
+
+We need to realize that in a binary search tree, a node is the lowest common ancestor of
+$p$ and $q$, when one value is on the left side and the other value is on the right side of the node.
+
+When both $p$ and $q$ are smaller than current, go to the left,
+when both $p$ and $q$ are larger, go to the right.
+
+When one is smaller, the other one is larger, the current node is the lowest common ancestor.
+When the current value matches one of $p$ or $q$, the current node is the lowest common ancestor.
+
+The solution can be done iteratively or recursively.
+
+**Complexity analysis**, where $n$ is the number of nodes in the binary search tree, and $h$ is the height of the binary search tree.
+
+**Iterative solution**:
+* **Time complexity**: $O(h)$. In the worst case, $h = n$, and therefore $O(n)$
+  because if the binary search tree is unbalanced (or degenerated to a linked list) and the values are at the bottom,
+  (almost) all nodes in the binary search tree will be visited. In a balanced binary search tree $h = \log n$.
+  In this case, the time complexity will be $O(\log n)$.
+* **Space complexity**: $O(1)$, no extra space needed apart from a variable.
+
+**Recursive solution**:
+* **Time complexity**: $O(n)$ (really $O(h)$), for balanced $O(\log n)$.
+* **Space complexity**: $O(n)$ (as in the worst case $h = n$) as we need space for the recursion stack. In case the tree is balanced, $h = \log n$.
 </details>
 
 

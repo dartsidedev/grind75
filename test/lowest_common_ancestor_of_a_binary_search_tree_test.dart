@@ -9,16 +9,35 @@ import 'package:test/test.dart';
 /// "The lowest common ancestor is defined between two nodes p and q as the
 /// lowest node in T that has both p and q as descendants
 /// where we allow a node to be a descendant of itself)."
-int lowestCommonAncestor(Node bst, int p, int q) {
-  var a = min(p, q), b = max(p, q), current = bst;
-
+int lowestCommonAncestorIterative1(Node node, int p, int q) {
+  var a = min(p, q), b = max(p, q), current = node;
   while (true) {
     final c = current.value;
-    if (a == c || b == c) return c;
-    if (a < c && c < b) return c;
+    if (a == c || b == c || a < c && c < b) return c;
     if (a < c && b < c) current = current.left!;
     if (c < a && c < b) current = current.right!;
   }
+}
+
+int lowestCommonAncestorIterative2(Node node, int p, int q) {
+  var a = min(p, q), b = max(p, q), current = node;
+  while (true) {
+    final c = current.value;
+    if (a < c && b < c) {
+      current = current.left!;
+    } else if (c < a && c < b) {
+      current = current.right!;
+    } else {
+      return c;
+    }
+  }
+}
+
+int lowestCommonAncestorRecursive(Node node, int p, int q) {
+  var a = min(p, q), b = max(p, q), c = node.value;
+  if (a < c && b < c) return lowestCommonAncestorRecursive(node.left!, p, q);
+  if (c < a && c < b) return lowestCommonAncestorRecursive(node.right!, p, q);
+  return c;
 }
 
 class Node {
@@ -51,30 +70,11 @@ void main() {
       ),
     );
 
-    expect(lowestCommonAncestor(bst, 2, 8), 6);
-    expect(lowestCommonAncestor(bst, 2, 4), 2);
-    expect(lowestCommonAncestor(bst, 7, 9), 8);
-    expect(lowestCommonAncestor(bst, 3, 0), 2);
+    expect(lowestCommonAncestorRecursive(bst, 2, 8), 6);
+    expect(lowestCommonAncestorRecursive(bst, 2, 4), 2);
+    expect(lowestCommonAncestorRecursive(bst, 7, 9), 8);
+    expect(lowestCommonAncestorRecursive(bst, 3, 0), 2);
   });
 }
 
 
-int lowestCommonAncestorAlternative(Node bst, int p, int q) {
-  var a = min(p, q), b = max(p, q), current = bst;
-
-  while (true) {
-    final c = current.value;
-
-    if (a < c && b < c) {
-      current = current.left!;
-      continue;
-    }
-
-    if (c < a && c < b) {
-      current = current.right!;
-      continue;
-    }
-
-    return c;
-  }
-}
