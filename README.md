@@ -192,26 +192,25 @@ bool match(List<int> a, List<int> b) => const ListEquality().equals(a, b);
 external bool identical(Object? a, Object? b);
 ```
 
-
 ```dart
 // A simplified (int only) version of
 // the ListEquality.equals from package:collection
 bool listEquals(List<int>? list1, List<int>? list2) {
   // Are they identical?
   if (identical(list1, list2)) return true;
-  
+
   // Consider nulls
   if (list1 == null || list2 == null) return false;
-  
+
   // Check lengths and return early if don't match
   var length = list1.length;
   if (length != list2.length) return false;
-  
+
   // Check every item, if they don't match return
   for (var i = 0; i < length; i++) {
     if (list1[i] != list2[i]) return false;
   }
-  
+
   // Yay, they are equal!
   return true;
 }
@@ -500,10 +499,13 @@ Pay attention to empty list, first element, last element. Practice templates.
 
 Depth-first search, either iteratively or recursively.
 
-**Complexity analysis**, where $n$ is the number of rows and $m$ in the number of columns in the image, and the total number of pixels is $p = m n$.
+**Complexity analysis**, where $n$ is the number of rows and $m$ in the number of columns in the image, and the total
+number of pixels is $p = m n$.
 
 * **Time complexity**: $O(n m) = O(p)$ as we might process every pixel.
-* **Space complexity**: $O(n m) = O(p)$ for the stack (either the call stack in the recursive solution or the queue/stack for the iterative solution).
+* **Space complexity**: $O(n m) = O(p)$ for the stack (either the call stack in the recursive solution or the
+  queue/stack for the iterative solution).
+
 </details>
 
 
@@ -520,10 +522,13 @@ When the current single item is better than the current sum plus the current sin
 reset the current max sum to the current item only. If it isn't better, add to the sum.
 
 This basically means that if the current sum is negative, you stop using the past values.
+
 ```dart
 current = math.max(current + v, v);
 // is the same as:
-current = current.isNegative ? value : current + value;
+current = current.isNegative
+?
+value : current + value;
 ```
 
 Don't forget to update the maximum value "so far" when needed.
@@ -533,21 +538,26 @@ PS: This is Kadane's algorithm.
 **Complexity analysis**, where $n$ is the length of the list.
 
 * **Time complexity**: $O(n)$ as we need to iterate over all items once.
-* **Space complexity**: $O(1)$ as we only need to use two variables, one for the "current" max and the other for the max "so far". This space doesn't depend on $n$.
+* **Space complexity**: $O(1)$ as we only need to use two variables, one for the "current" max and the other for the
+  max "so far". This space doesn't depend on $n$.
 
 Alternative solutions:
 
 * **Brute force**: Three loops. Two for moving `start` and `end` indices, a third for calculating the sum.
-  * **Time complexity**: $O(n^3)$ for the three nested loops.
-  * **Space complexity**: $O(1)$.
-* **Optimized brute force**: One loop for moving the `start` index. The second loop moves the `end` index while simultaneously updating the `currentMax` value. Compare against `max`.
-  * **Time complexity**: $O(n^2)$ for the two nested loops. The improvement over the $O(n^3$ solution comes from the fact that we recognized that when we add one more item to the sub-list, we don't need to recalculate the current sum completely: $ \sum_{k = 0}^{n + 1} a_k = a_{n + 1} \sum_{k = 0}^{n} a_k $.
-  * **Space complexity**: $O(1)$.
+    * **Time complexity**: $O(n^3)$ for the three nested loops.
+    * **Space complexity**: $O(1)$.
+* **Optimized brute force**: One loop for moving the `start` index. The second loop moves the `end` index while
+  simultaneously updating the `currentMax` value. Compare against `max`.
+    * **Time complexity**: $O(n^2)$ for the two nested loops. The improvement over the $O(n^3$ solution comes from the
+      fact that we recognized that when we add one more item to the sub-list, we don't need to recalculate the current
+      sum completely: $ \sum_{k = 0}^{n + 1} a_k = a_{n + 1} \sum_{k = 0}^{n} a_k $.
+    * **Space complexity**: $O(1)$.
 * **Divide and Conquer**: **TODO.**
-  * **Time complexity**: $O(n \log n)$.
-  * **Space complexity**: $O(\log n)$.
+    * **Time complexity**: $O(n \log n)$.
+    * **Space complexity**: $O(\log n)$.
 
-You can find out more about this issue on [Wikipedia - Maximum Subarray Problem](https://en.wikipedia.org/wiki/Maximum_subarray_problem).
+You can find out more about this issue
+on [Wikipedia - Maximum Subarray Problem](https://en.wikipedia.org/wiki/Maximum_subarray_problem).
 </details>
 
 
@@ -561,7 +571,8 @@ You can find out more about this issue on [Wikipedia - Maximum Subarray Problem]
 > [Solution](./test/lowest_common_ancestor_of_a_binary_search_tree_test.dart)
 > [LeetCode](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
 
-> The lowest common ancestor is defined between two nodes $p$ and $q$ as the lowest node in $T$ tree that has both $p$ and $q$ as descendants (where we allow a node to be a descendant of itself).
+> The lowest common ancestor is defined between two nodes $p$ and $q$ as the lowest node in $T$ tree that has both $p$
+> and $q$ as descendants (where we allow a node to be a descendant of itself).
 
 We need to realize that in a binary search tree, a node is the lowest common ancestor of
 $p$ and $q$, when one value is on the left side and the other value is on the right side of the node.
@@ -574,9 +585,11 @@ When the current value matches one of $p$ or $q$, the current node is the lowest
 
 The solution can be done iteratively or recursively.
 
-**Complexity analysis**, where $n$ is the number of nodes in the binary search tree, and $h$ is the height of the binary search tree.
+**Complexity analysis**, where $n$ is the number of nodes in the binary search tree, and $h$ is the height of the binary
+search tree.
 
 **Iterative solution**:
+
 * **Time complexity**: $O(h)$. In the worst case, $h = n$, and therefore $O(n)$
   because if the binary search tree is unbalanced (or degenerated to a linked list) and the values are at the bottom,
   (almost) all nodes in the binary search tree will be visited. In a balanced binary search tree $h = \log n$.
@@ -584,8 +597,11 @@ The solution can be done iteratively or recursively.
 * **Space complexity**: $O(1)$, no extra space needed apart from a variable.
 
 **Recursive solution**:
+
 * **Time complexity**: $O(n)$ (really $O(h)$), for balanced $O(\log n)$.
-* **Space complexity**: $O(n)$ (as in the worst case $h = n$) as we need space for the recursion stack. In case the tree is balanced, $h = \log n$.
+* **Space complexity**: $O(n)$ (as in the worst case $h = n$) as we need space for the recursion stack. In case the tree
+  is balanced, $h = \log n$.
+
 </details>
 
 
